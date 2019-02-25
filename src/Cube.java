@@ -565,128 +565,459 @@ public boolean solve2() {
 	return false;
 }
 
-//public boolean solve3() {
-//	return solve3(0,0,0,0);
-//}
+public boolean solve3() {
+	return solve3(0);
+}
 
-//public boolean solve3(int one, int two, int three, int four) {
-////{ corner ID x coordinate, corner ID y Coordinate, side 1 colour, S1 x, S1 y, Side 2 Colour, S2 x, S2 y} 
-//	
-//int[][] white = this.getSide(0);
-//int[][] red = this.getSide(1);
-//int[][] blue = this.getSide(2);
-//int[][] green = this.getSide(3);
-//int[][] orange = this.getSide(4);
-//int[][] yellow = this.getSide(5);
-//
-////corner 1 check
-//
-//while(one == 0) { //corner 1 - orange and green
-//	
-//	if(white[0][0] == 0 && orange[0][2] == 4 && green[0][0] == 3 && orange[1][0] == 4 && green[1][0] == 4)
-//		return solve3(1,0,0,0);
-//	
-//	if(white[0][0] == 0 && orange[0][2] == 4 || white[0][0] == 3 && orange[0][2] == 0 || white[0][0] == 4 && orange[0][2] == 3) { //check if corner is in green-orange
-//		this.faceTurn(4);
-//		this.faceTurn(5);
-//		this.faceTurn(4, false);
-//		this.faceTurn(5, false);
-//		return solve3();
-//	}
-//	
-//	if(white[1][2] == 0 && blue[0][2] == 4 || white[1][2] == 3 && blue[0][2] == 0 || white[1][2] == 4 && blue[0][2] == 3) { // check if corner is in orange - blue
-//		this.faceTurn(2);
-//		this.faceTurn(5);
-//		this.faceTurn(2, false);
-//		return solve3();	
-//	}
-//	
-//	if(white[2][1] == 0 && red[0][2] == 4 || white[2][1] == 3 && red[0][2] == 0 || white[2][1] == 4 && red[0][2] == 3) { // check if corner is in blue - red
-//		this.faceTurn(1);
-//		this.faceTurn(5);
-//		this.faceTurn(1, false);
-//		this.faceTurn(5);
-//		return solve3();
-//	}
-//	
-//	if(white[1][0] == 0 && green[0][2] == 4 || white[1][0] == 3 && green[0][2] == 0 || white[1][0] == 4 && green[0][2] == 3) { // check if corner is in red - green
-//		this.faceTurn(3);
-//		this.faceTurn(5);
-//		this.faceTurn(3, false);
-//		this.faceTurn(5,true,true);
-//		return solve3();
-//	}
-//	
-//	//corner has to be in top layer now right above where it should go in
-//	
-//	if(green[1][0] == 3 && orange[1][2] ==  4 || green[1][0] == 4 && orange[1][2] == 3) {//checks under corner slot (why its longer)
-//		this.faceTurn(4);
-//		this.faceTurn(5);
-//		this.faceTurn(4, false);
-//		this.faceTurn(5,true, true);
-//		this.faceTurn(4);
-//		this.faceTurn(5, false);
-//		this.faceTurn(4, false);
-//		this.faceTurn(5,false,true);
-//		return solve3();
-//	}
-//	
-//	if(orange[1][0] == 3 && blue[1][2] == 4|| orange[1][0] == 4 && blue[1][2] == 3) {//orange blue
-//		this.faceTurn(4, false);
-//		this.faceTurn(5, false);
-//		this.faceTurn(4);
-//		this.faceTurn(5);
-//		return solve3();
-//	}
-//	
-//	if(blue[1][0] == 3 && red[1][2] == 4|| blue[1][0] == 4 && red[1][2] == 3) { //blue-red
-//		this.faceTurn(2, false);
-//		this.faceTurn(5);
-//		this.faceTurn(2);
-//		this.faceTurn(5,false);
-//		return solve3();
-//	}	
-//	
-//	if(red[1][0] == 3 && green[1][2] == 4|| red[1][0] == 4 && green[1][2] == 3) { //red-green
-//		this.faceTurn(1, false);
-//		this.faceTurn(5, false);
-//		this.faceTurn(1);
-//		this.faceTurn(5);
-//		return solve3();
-//	}	
-//	
-//	if(yellow[1][0] == 3 && green[2][1] == 4 || yellow[1][0] == 4 && green[2][1] == 3) {// edge is to the left of corner - move it
-//		this.faceTurn(4);
-//		this.faceTurn(5,true,true);
-//		this.faceTurn(4, false);
-//		this.faceTurn(5, false);
-//		return solve3();	
-//	}
-//	
-//	if(yellow[2][1] == 3 && orange[2][1] == 4 || yellow[2][1] == 4 && orange[2][1] == 3) {
-//		this.faceTurn(3, false);
-//		this.faceTurn(5,true,true);
-//		this.faceTurn(3);
-//		this.faceTurn(5);
-//		return solve3();	
-//	}
-//	
-//	
-//	
-//}
-///*	check solve 3 - matches pairs and then inserts them
-//	 -check if the corner is correct than check if the edge is 
-//	 yes? --> check next set until all 4 are yes
-//	 no --> run algorithms to find both parts of sets - 	move corner to top then edge (without messing up others 
-//	 		check position for 3 cases
-//	 			insert*/
-//
-//	
-//	
-//	
-//	
-//	return true;
-//}
+public boolean solve3(int status) { 
+//status int starts at 0, increments by one each time a pair is inserted
+	
+	int[][] white = this.getSide(0);
+	int[][] red = this.getSide(1);
+	int[][] blue = this.getSide(2);
+	int[][] green = this.getSide(3);
+	int[][] orange = this.getSide(4);
+	int[][] yellow = this.getSide(5);
+	
+	//corner 1 check
+	
+	while(status == 0) { //corner 1 - orange and green
+		
+		if(white[0][0] == 0 && orange[0][2] == 4 && green[0][0] == 3 && orange[1][0] == 4 && green[1][0] == 3)
+			return solve3(1);
+		
+		if(white[0][0] == 0 && orange[0][2] == 4 || white[0][0] == 3 && orange[0][2] == 0 || white[0][0] == 4 && orange[0][2] == 3) { //check if corner is in green-orange
+			this.faceTurn(4);
+			this.faceTurn(5);
+			this.faceTurn(4, false);
+			this.faceTurn(5, false);
+		}
+		
+		if(white[0][2] == 0 && blue[0][2] == 4 || white[0][2] == 3 && blue[0][2] == 0 || white[0][2] == 4 && blue[0][2] == 3) { // check if corner is in orange - blue
+			this.faceTurn(2);
+			this.faceTurn(5);
+			this.faceTurn(2, false);	
+		}
+		
+		if(white[2][2] == 0 && red[0][2] == 4 || white[2][2] == 3 && red[0][2] == 0 || white[2][2] == 4 && red[0][2] == 3) { // check if corner is in blue - red
+			this.faceTurn(1);
+			this.faceTurn(5);
+			this.faceTurn(1, false);
+			this.faceTurn(5);
+		}
+		
+		if(white[2][0] == 0 && green[0][2] == 4 || white[2][0] == 3 && green[0][2] == 0 || white[2][0] == 4 && green[0][2] == 3) { // check if corner is in red - green
+			this.faceTurn(3);
+			this.faceTurn(5);
+			this.faceTurn(3, false);
+			this.faceTurn(5,true,true);
+		}
+		
+		//see if corner was in top layer already
+		if(yellow[0][0] == 3 && green[2][2] == 4 || yellow[0][0] == 4 && green[2][2] == 0 || yellow[0][0] == 0 && green[2][2] == 3) //check if corner is above red-green
+			this.faceTurn(5,false);
+		
+		if(yellow[0][2] == 3 && red[2][2] == 4 || yellow[0][2] == 4 && red[2][2] == 0 || yellow[0][2] == 0 && red[2][2] == 3) //check if corner is above blue-red
+			this.faceTurn(5,false,true);
+			
+		if(yellow[2][2] == 3 && blue[2][2] == 4 || yellow[2][2] == 4 && blue[2][2] == 0 || yellow[2][2] == 0 && blue[2][2] == 3)
+			this.faceTurn(5);
+			
+		//corner has to be in top layer now right above where it should go in
+		
+		if(green[1][0] == 3 && orange[1][2] ==  4 || green[1][0] == 4 && orange[1][2] == 3) {//checks under corner slot (why its longer)
+			this.faceTurn(4);
+			this.faceTurn(5);
+			this.faceTurn(4, false);
+			this.faceTurn(5,true, true);
+			this.faceTurn(4);
+			this.faceTurn(5, false);
+			this.faceTurn(4, false);
+		}
+		
+		if(orange[1][0] == 3 && blue[1][2] == 4|| orange[1][0] == 4 && blue[1][2] == 3) {//orange blue
+			this.faceTurn(5);
+			this.faceTurn(2);
+			this.faceTurn(5,false);
+			this.faceTurn(2,false);
+		}
+		
+		if(blue[1][0] == 3 && red[1][2] == 4|| blue[1][0] == 4 && red[1][2] == 3) { //blue-red
+			this.faceTurn(1);
+			this.faceTurn(5, false);
+			this.faceTurn(1, false);
+			this.faceTurn(5);
+		}	
+		
+		if(red[1][0] == 3 && green[1][2] == 4|| red[1][0] == 4 && green[1][2] == 3) { //red-green
+			this.faceTurn(5, false);
+			this.faceTurn(3);
+			this.faceTurn(5, false);
+			this.faceTurn(3, false);
+			this.faceTurn(5,true,true);
+		}	
+		
+		if(yellow[2][1] == 3 && orange[2][1] == 4 || yellow[2][1] == 4 && orange[2][1] == 3) {//edge is directly to right (orange-yellow)
+			this.faceTurn(3, false);
+			this.faceTurn(5,true,true);
+			this.faceTurn(3);
+			this.faceTurn(5);
+			//should then activate next if statement
+		}
+		
+		if(yellow[1][2] == 3 && blue[2][1] == 4 || yellow[1][2] == 4 && blue[2][1] == 3) {// edge is in opposite spot of corner (blue-yellow)
+			this.faceTurn(5);
+			this.faceTurn(3, false);
+			this.faceTurn(5, false);
+			this.faceTurn(3);
+			this.faceTurn(5, false);
+		}
+		
+		if(yellow[1][0] == 3 && orange[2][1] == 4 || yellow[1][0] == 4 && orange[2][1] == 3) {//edge is directly to left (green-yellow)
+			this.faceTurn(3, false);
+			this.faceTurn(5,true,true);
+			this.faceTurn(3);
+			this.faceTurn(5);	
+		}
+		//now matching corner and edge are in the top layer and corner to the left - ready for insert
+		this.insert(0);
+	}
+	
+	while(status == 1) { //pair 2 - red - green
+		
+		if(white[2][0] == 0 && red[0][0] == 1 && red[1][0] == 1 && green[0][2] == 3 && green[1][2] == 3)
+			return solve3(2);
+		
+		if(white[2][0] == 0 && red[0][0] == 1 || white[2][0] == 1 && red[0][0] == 3 || white[2][0] == 3 && red[0][0] == 0) { //check if corner is in red - green
+			this.faceTurn(3);
+			this.faceTurn(5);
+			this.faceTurn(3, false);
+			this.faceTurn(5, false);
+		}
+		
+		if(white[0][2] == 0 && blue[0][2] == 1 || white[0][2] == 1  && blue[0][2] == 3 || white[0][2] == 3 && blue[0][2] == 0) { // check if corner is in orange - blue
+			this.faceTurn(2);
+			this.faceTurn(5);
+			this.faceTurn(2, false);
+			this.faceTurn(5);
+		}
+		
+		if(white[2][2] == 0 && blue[0][0] == 1 || white[2][2] == 1 && blue[0][0] == 3 || white[2][2] == 3 && blue[0][2] == 0) { // check if corner is in blue - red
+			this.faceTurn(1);
+			this.faceTurn(5);
+			this.faceTurn(1, false);
+			this.faceTurn(5,true,true);
+		}
+		
+		//see if corner was in top layer already
+		if(yellow[2][1] == 0 && green[2][0] == 1 || yellow[2][1] == 1 && green[2][0] == 3 || yellow[2][1] == 3 && green[2][0] == 0) //check if corner is above orange-green
+			this.faceTurn(5);
+		
+		if(yellow[0][2] == 0 && red[2][2] == 1 || yellow[0][2] == 1 && red[2][2] == 3 || yellow[0][2] == 3 && red[2][2] == 0) //check if corner is above blue-red
+			this.faceTurn(5,false);
+			
+		if(yellow[2][2] == 0 && blue[2][2] == 1 || yellow[2][2] == 1 && blue[2][2] == 3 || yellow[2][2] == 3 && blue[2][2] == 0)//check above blue-orange
+			this.faceTurn(5, true, true);
+		
+		//corner has to be in top layer now right above where it should go in
+		
+		if(green[1][2] == 3 && red[1][0] ==  1 || green[1][2] == 1 && red[1][0] == 3) {//checks under corner slot (why its longer)
+			this.faceTurn(3);
+			this.faceTurn(5);
+			this.faceTurn(3, false);
+			this.faceTurn(5,true, true);
+			this.faceTurn(3);
+			this.faceTurn(5, false);
+			this.faceTurn(3, false);
+		}
+		
+		if(blue[1][2] == 1 && orange[1][0] == 3|| blue[1][2] == 3 && orange[1][0] == 1) { //orange-blue
+			this.faceTurn(2);
+			this.faceTurn(5, false);
+			this.faceTurn(2, false);
+			this.faceTurn(5);
+		}	
+		
+		if(red[1][2] == 1 && blue[1][0] == 3|| red[1][2] == 3 && blue[1][0] == 1) { //blue-red
+			this.faceTurn(5, false);
+			this.faceTurn(1);
+			this.faceTurn(5, false);
+			this.faceTurn(1, false);
+			this.faceTurn(5,true,true);
+		}	
+		
+		if(yellow[1][0] == 3 && green[2][1] == 1 || yellow[1][0] == 1 && green[2][1] == 3) {//edge is directly to right
+			this.faceTurn(1, false);
+			this.faceTurn(5,true,true);
+			this.faceTurn(1);
+			this.faceTurn(5);
+			//should then activate next if statement
+		}
+		
+		if(yellow[2][1] == 3 && orange[2][1] == 1 || yellow[2][1] == 1 && orange[2][1] == 3) {// edge is in opposite spot of corner
+			this.faceTurn(5);
+			this.faceTurn(2, false);
+			this.faceTurn(5, false);
+			this.faceTurn(2);
+			this.faceTurn(5, false);
+		}
+		
+		if(yellow[0][1] == 3 && red[2][1] == 1 || yellow[0][1] == 1 && red[2][1] == 3) {//edge is directly to left
+			this.faceTurn(1,false);
+			this.faceTurn(5,true,true);
+			this.faceTurn(1);
+			this.faceTurn(5);	
+		}
+		
+		this.insert(1);
+	}
+	
+	while(status == 2) {//pair 3 - blue-red
+		
+		if(white[2][2] == 0 && blue[0][0] == 2 && blue[1][0] == 2 && red[0][2] == 1 && red[1][2] == 1)
+			return solve3(3);
+		
+		if(white[2][2] == 0 && blue[0][0] == 2 || white[2][2] == 2 && blue[0][0] == 1 || white[2][2] == 1 && blue[0][0] == 0) { //check if corner is in blue-red
+			this.faceTurn(1);
+			this.faceTurn(5);
+			this.faceTurn(1, false);
+			this.faceTurn(5, false);
+		}
+		
+		if(white[0][2] == 0 && blue[0][2] == 2 || white[0][2] == 2 && blue[0][2] == 1 || white[0][2] == 1 && blue[0][2] == 0) { // check if corner is in orange-blue
+			this.faceTurn(2);
+			this.faceTurn(5);
+			this.faceTurn(2, false);
+			this.faceTurn(5,true,true);
+		}
+		
+		//see if corner was in top layer already
+		if(yellow[0][0] == 0 && green[2][2] == 2 || yellow[0][0] == 1 && green[2][2] == 0 || yellow[0][0] == 2 && green[2][2] == 1) //check if corner is above red-green
+			this.faceTurn(5);
+		
+		if(yellow[2][0] == 0 && orange[2][2] == 2 || yellow[2][0] == 1 && orange[2][2] == 0 || yellow[2][0] == 2 && orange[2][2] == 1) //check if corner is above green-orange
+			this.faceTurn(5,false,true);
+			
+		if(yellow[2][2] == 0 && blue[2][2] == 2 || yellow[2][2] == 1&& blue[2][2] == 0 || yellow[2][2] == 2  && blue[2][2] == 1)//check blue-orange
+			this.faceTurn(5,false);
+			
+		//corner has to be in top layer now right above where it should go in
+		
+		if(blue[1][0] == 1 && red[1][2] ==  2 || blue[1][0] == 2 && red[1][2] == 1) {//checks under corner slot (why its longer)
+			this.faceTurn(1);
+			this.faceTurn(5);
+			this.faceTurn(1, false);
+			this.faceTurn(5,true, true);
+			this.faceTurn(1);
+			this.faceTurn(5, false);
+			this.faceTurn(1, false);
+		}
+		
+		if(orange[1][0] == 1 && blue[1][2] == 2|| orange[1][0] == 2 && blue[1][2] == 1) {//orange blue
+			this.faceTurn(5,false);
+			this.faceTurn(2);
+			this.faceTurn(5,false);
+			this.faceTurn(2,false);
+			this.faceTurn(5,true,true);
+		}
+		
+		if(yellow[0][1] == 1 && red[2][1] == 2 || yellow[0][1] == 2 && red[2][1] == 1) {//edge is directly to right (red)
+			this.faceTurn(1);
+			this.faceTurn(5,true,true);
+			this.faceTurn(1,false);
+			this.faceTurn(5,false);
+			//should then activate next if statement
+		}
+		
+		if(yellow[1][0] == 1 && green[2][1] == 2 || yellow[1][0] == 2 && green[2][1] == 1) {// edge is in opposite spot of corner (green)
+			this.faceTurn(5, false);
+			this.faceTurn(1);
+			this.faceTurn(5, false);
+			this.faceTurn(1, false);
+			this.faceTurn(5);
+		}
+		
+		if(yellow[2][0] == 3 && blue[2][1] == 4 || yellow[2][0] == 4 && blue[2][1] == 3) {//edge is directly to left (blue)
+			this.faceTurn(1);
+			this.faceTurn(5,true,true);
+			this.faceTurn(1, false);
+			this.faceTurn(5,false);	
+		}
+		this.insert(2);
+	}	
+	
+	while(status == 3) {//pair 4 - orange-blue
+		
+		if(white[0][2] == 0 && orange[0][0] == 4 && orange[1][0] == 4 && blue[0][2] == 2 && blue[1][2] == 2)
+			return true; //all pairs are matched up
+		
+		if(white[0][2] == 0 && orange[0][0] == 4 || white[0][2] == 2 && orange[0][0] == 0 || white[0][2] == 4 && orange[0][0] == 2) { //check if corner is in orange-blue
+			this.faceTurn(2);
+			this.faceTurn(5);
+			this.faceTurn(2, false);
+			this.faceTurn(5, false);
+		}
+		
+		//see if corner was in top layer already
+		if(yellow[0][2] == 0 && red[2][2] == 4 || yellow[0][2] == 2 && red[2][2] == 0 || yellow[0][2] == 4 && red[2][2] == 2) //check if corner is above blue-red
+			this.faceTurn(5);
+		
+		if(yellow[0][0] == 0 && green[2][2] == 4 || yellow[0][0] == 2 && green[2][2] == 0 || yellow[0][0] == 4 && green[2][2] == 2) //check if corner is above red-green
+			this.faceTurn(5,false,true);
+			
+		if(yellow[2][0] == 0 && orange[2][2] == 4 || yellow[2][0] == 2 && orange[2][2] == 0 || yellow[2][0] == 4  && orange[2][2] == 2)//check green-orange
+			this.faceTurn(5,false);
+			
+		//corner has to be in top layer now right above where it should go in
+		
+		if(orange[1][0] == 2 && blue[1][2] ==  4 || orange[1][0] == 4 && blue[1][2] == 2) {//checks under corner slot (why its longer)
+			this.faceTurn(2);
+			this.faceTurn(5);
+			this.faceTurn(2, false);
+			this.faceTurn(5,true, true);
+			this.faceTurn(2);
+			this.faceTurn(5, false);
+			this.faceTurn(2, false);
+		}
+		
+		if(yellow[1][2] == 4 && blue[2][1] == 2 || yellow[1][2] == 2 && blue[2][1] == 4) {//edge is directly to right (blue)
+			this.faceTurn(2);
+			this.faceTurn(5,true,true);
+			this.faceTurn(2,false);
+			this.faceTurn(5,false);
+			//should then activate next if statement
+		}
+		
+		if(yellow[0][1] == 4 && red[2][1] == 2 || yellow[0][1] == 2 && red[2][1] == 4) {// edge is in opposite spot of corner (red
+			this.faceTurn(5, false);
+			this.faceTurn(2);
+			this.faceTurn(5, false);
+			this.faceTurn(2, false);
+			this.faceTurn(5);
+		}
+		
+		if(yellow[2][1] == 2 && orange[2][1] == 4 || yellow[2][1] == 4 && orange[2][1] == 2) {//edge is directly to left (orange)
+			this.faceTurn(2);
+			this.faceTurn(5,true,true);
+			this.faceTurn(2, false);
+			this.faceTurn(5,false);	
+		}
+		this.insert(3);
+	}	
+	return false; //never reached
+}
+
+private void insert(int status) {//inserts corner/edge pairs in F2L
+	
+	int left, right, cornerX, cornerY, edgeX, edgeY;
+	
+	switch(status) {
+	case 0:
+		left = green;
+		right = orange;
+		cornerX = 2;
+		cornerY = 0;
+		edgeX = 0;
+		edgeY = 1;
+		break;
+		
+	case 1:
+		left = red;
+		right = green;
+		cornerX = 0;
+		cornerY = 0;
+		edgeX = 1;
+		edgeY = 2;
+		break;
+		
+	case 2:
+		left = blue;
+		right = red;
+		cornerX = 0;
+		cornerY = 2;
+		edgeX = 2;
+		edgeY = 1;
+		break;
+		
+	case 3:
+		left = orange;
+		right = blue;
+		cornerX = 2;
+		cornerY = 2;
+		edgeX = 1;
+		edgeY =  0;
+		break; 
+		
+	default:
+		left = 0;
+		right = 0;
+		cornerX = 0;
+		cornerY = 0;
+		edgeX = 0;
+		edgeY = 0;
+	}
+	
+	int[][] Top = this.getSide(yellow);
+//	int[][] Left = this.getSide(left);
+//	int[][] Right = this.getSide(right);
+	
+	if(Top[cornerX][cornerY] == white) {
+		//do weird alg
+		if(Top[edgeX][edgeY] == left) {
+			this.faceTurn(yellow,false,true);//lineup edge with matching colour(right)
+			this.faceTurn(right);
+			this.faceTurn(yellow);
+			this.faceTurn(right,false);
+			this.faceTurn(yellow);
+			this.faceTurn(right);
+			this.faceTurn(yellow,false);
+			this.faceTurn(right,false);
+		}
+		else {
+			this.faceTurn(yellow,false);//lineup edge with matching colour(left)
+			this.faceTurn(left, false);
+			this.faceTurn(yellow, true, true);
+			this.faceTurn(left);
+			this.faceTurn(yellow, false);
+			this.faceTurn(left, false);
+			this.faceTurn(yellow);
+			this.faceTurn(left);
+		}
+	}
+	
+	else if(Top[cornerX][cornerY] == Top[edgeX][edgeY]) {
+		//do match algorithm
+		this.faceTurn(yellow);
+		this.faceTurn(left, false);
+		this.faceTurn(yellow, false);
+		this.faceTurn(left);
+		this.faceTurn(yellow,false, true);
+		this.faceTurn(left, false);
+		this.faceTurn(yellow);
+		this.faceTurn(left);
+		
+	}
+	
+	else {
+		//do opposite algorithm
+		if(Top[cornerX][cornerY] == left) {
+			this.faceTurn(left, false);
+			this.faceTurn(yellow, false);
+			this.faceTurn(left);
+		}
+		
+		else {//have to move edge before insertion
+			this.faceTurn(yellow);
+			this.faceTurn(left,false);
+			this.faceTurn(yellow);
+			this.faceTurn(left);
+			this.faceTurn(yellow,false);
+			this.faceTurn(right);
+			this.faceTurn(yellow);
+			this.faceTurn(right,false);
+		}			
+	}
+}
 
 
 private int solve2Switch1(int[][] yellow) {// returns 0 for cross, 1 for L, 2 for line and 3 for dot
@@ -777,41 +1108,41 @@ private int solve1Check(int[][] face) { //returns 0 for [000], 1 for [101] and 2
 }
 
 public void solve1Alg1(int back) {//change to private after test
-int side = sideNumberChange(back, true);
-int front = sideNumberChange(side, true);
-
-System.out.println("Starting final stage - alg 1:");
-this.faceTurn(side, false);
-this.faceTurn(front);
-this.faceTurn(side, false);
-this.faceTurn(back, true, true);
-this.faceTurn(side);
-this.faceTurn(front, false);
-this.faceTurn(side, false);
-this.faceTurn(back, true, true);
-this.faceTurn(side, true, true);
-
-this.displayNet();
+	int side = sideNumberChange(back, true);
+	int front = sideNumberChange(side, true);
+	
+	System.out.println("Starting final stage - alg 1:");
+	this.faceTurn(side, false);
+	this.faceTurn(front);
+	this.faceTurn(side, false);
+	this.faceTurn(back, true, true);
+	this.faceTurn(side);
+	this.faceTurn(front, false);
+	this.faceTurn(side, false);
+	this.faceTurn(back, true, true);
+	this.faceTurn(side, true, true);
+	
+	this.displayNet();
 }
 
 private void solve1Alg2(int back, boolean direction /*true is CW, false is CCW*/) {
-int rSide = sideNumberChange(back, true);
-int front = sideNumberChange(rSide, true);
-int lSide = sideNumberChange(back, false);
-
-
-System.out.println("Starting final stage - alg 2:" );
-this.faceTurn(front,true, true);
-this.faceTurn(5, direction);
-this.faceTurn(rSide, false);
-this.faceTurn(lSide, true);
-this.faceTurn(front, true, true);
-this.faceTurn(rSide, true);
-this.faceTurn(lSide, false);
-this.faceTurn(5, direction);
-this.faceTurn(front, true, true);
-
-this.displayNet();
+	int rSide = sideNumberChange(back, true);
+	int front = sideNumberChange(rSide, true);
+	int lSide = sideNumberChange(back, false);
+	
+	
+	System.out.println("Starting final stage - alg 2:" );
+	this.faceTurn(front,true, true);
+	this.faceTurn(5, direction);
+	this.faceTurn(rSide, false);
+	this.faceTurn(lSide, true);
+	this.faceTurn(front, true, true);
+	this.faceTurn(rSide, true);
+	this.faceTurn(lSide, false);
+	this.faceTurn(5, direction);
+	this.faceTurn(front, true, true);
+	
+	this.displayNet();
 
 }
 
@@ -850,7 +1181,6 @@ int[][] front , lSide;
 		return false;
 }
 
-
 private int sideNumberChange(int face, boolean direction) {
 
 	if(direction == true) {
@@ -876,18 +1206,21 @@ public static void main(String args[]) {
 
 	Cube cube = new Cube();
 	
-	//double check order of entry before running - add exception checker
+	cube.setSide(0,o,w,w,w,w,b,b,y);
+	cube.setSide(1,r,r,b,r,o,g,o,r);
+	cube.setSide(2,r,b,b,g,b,y,b,g);
+	cube.setSide(3,y,g,w,y,w,r,r,o);
+	cube.setSide(4,o,o,b,o,g,o,r,w);
+	cube.setSide(5,y,y,g,g,y,g,y,w);
 	
-	cube.setSide(0,w,w,w,w,w,w,w,w);
-	cube.setSide(1,r,r,r,r,r,y,y,o);
-	cube.setSide(2,b,b,b,b,b,y,y,g);
-	cube.setSide(3,g,g,g,g,g,y,y,g);
-	cube.setSide(4,o,o,o,o,o,r,y,b);
-	cube.setSide(5,o,b,b,r,o,r,g,y);
-
+	
+//	cube.faceTurn(5);
+//
+//	cube.solveCube();
+	
 	cube.displayNet();
-	cube.faceTurn(5);
-
-	cube.solveCube();
+	
+	boolean garbage = cube.solve3();
+	cube.displayNet();
 }
 }

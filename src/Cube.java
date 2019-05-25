@@ -317,6 +317,7 @@ public void turnTest(int index) {// testing method for debugging turns
 
 public void solveCube() {//reorder/rename solve method names as more are added
 	
+	//while (solve4() != true);
 	//while(solve3()!= true);
 	while(solve2()!=true);
 	while(solve1()!=true);
@@ -905,6 +906,253 @@ public boolean solve3(int status) {
 		this.insert(3);
 	}	
 	return false; //never reached
+}
+
+private boolean solve4() { return solve4(0);}
+
+private boolean solve4(int state) {
+	//method that will take random cube and create the white cross
+	
+	//sequentially find each white edge and move it to the right spot
+	//find edges and line them up in order: red, blue, orange, green (improve later)
+	int[][] white = this.getSide(0);
+	int[][] red = this.getSide(1);
+	int[][] blue = this.getSide(2);
+	int[][] green = this.getSide(3);
+	int[][] orange = this.getSide(4);
+	int[][] yellow = this.getSide(5);
+	
+	
+	while(state == 0) {//red white
+		
+		if(white[2][1] == 0 && red[0][1] == 1) {return solve4(1);}
+		
+		if(yellow[0][1] == 0 && red[2][1] == 1 || yellow[0][1] == 1 && red[2][1] == 0) {
+			this.faceTurn(1);
+			return solve4(0);
+		}
+		
+		if(yellow[1][2] == 0 && blue[2][1] == 1 || yellow[1][2] == 1 && blue[2][1] == 0) {
+			this.faceTurn(2);
+			return solve4(0);
+		}
+		
+		if(yellow[2][1] == 0 && orange[2][1] == 1 || yellow[2][1] == 1 && orange[2][1] == 0) {
+			this.faceTurn(4);
+			return solve4(0);
+		}
+		
+		if(yellow[1][0] == 0 && green[2][1] == 1 || yellow[1][0] == 1 && green[2][1] == 0) {
+			this.faceTurn(3);
+			return solve4(0);
+		}
+		
+		if(red[1][2] == 1 && blue[1][0] == 0) {
+			this.faceTurn(1, false);
+			return solve4(0);
+		}
+			
+		if(red[1][2] == 0 && blue[1][0] == 1) {
+			this.faceTurn(2);
+			this.faceTurn(0);
+			return solve4(0);
+		}
+		
+		if(blue[1][2] == 1 && orange[1][0] ==0) {
+			this.faceTurn(2,false);
+			this.faceTurn(0);
+			return solve4(0);
+		}
+			
+		if(blue[1][2] == 0 && orange[1][0] ==1) {
+			this.faceTurn(4);
+			this.faceTurn(0,true,true);
+			return solve4(0);
+		}
+		
+		if(orange[1][2] == 1 && green[1][0] ==0) {
+			this.faceTurn(4,false);
+			this.faceTurn(0,true,true);
+			return solve4(0);
+		}
+			
+		if(orange[1][2] == 0 && green[1][0] ==1) {
+			this.faceTurn(3);
+			this.faceTurn(0,false);
+			return solve4(0);
+		}
+		
+		if(green[1][2] == 1 && red[1][0] == 0) {
+			this.faceTurn(3, false);
+			this.faceTurn(0,false);
+			return solve4(0);
+		}
+			
+		if(green[1][2] == 0 && red[1][0] == 1) {
+			this.faceTurn(1);
+			return solve4(0);
+		}
+		
+		if(white[2][1] == 1 && red[0][1] == 0) {
+			this.faceTurn(1);
+			this.faceTurn(0,false);
+			this.faceTurn(2);
+			this.faceTurn(0);
+			return solve4(0);
+		}
+		
+		if(white[1][2] == 0 && blue[0][1] ==1) {
+			this.faceTurn(0);
+			return solve4(0);
+		}
+			
+		if(white[1][2] == 1 && blue[0][1] == 0) {
+			this.faceTurn(2,false);
+			this.faceTurn(1,false);
+			return solve4(0);
+		}
+		
+		if(white[0][1] == 0 && orange[0][1] ==1) {
+			this.faceTurn(0,true,true);
+			return solve4(0);
+		}
+			
+		if(white[0][1] == 1 && orange[0][1] == 0) {
+			this.faceTurn(4,false);
+			this.faceTurn(0,false);
+			this.faceTurn(1,false);
+			this.faceTurn(0);
+			return solve4(0);
+		}
+			
+		if(white[1][0] == 0 && green[0][1] ==1) {
+			this.faceTurn(0,false);
+			return solve4(0);
+		}
+			
+		if(white[1][0] == 1 && green[0][1] == 0) {
+			this.faceTurn(3);
+			this.faceTurn(1);
+			return solve4(0);
+		}
+	}
+	
+	while(state == 1) {//white blue
+		
+		if(white[1][2] == 0 && blue[0][1] == 1) {return solve4(2);}
+		
+		if(yellow[0][1] == 0 && red[2][1] == 2 || yellow[0][1] == 2 && red[2][1] == 0) {
+			this.faceTurn(1);
+			return solve4(1);
+		}
+		
+		if(yellow[1][2] == 0 && blue[2][1] == 2 || yellow[1][2] == 2 && blue[2][1] == 0) {
+			this.faceTurn(2);
+			return solve4(1);
+		}
+		
+		if(yellow[2][1] == 0 && orange[2][1] == 2 || yellow[2][1] == 2 && orange[2][1] == 0) {
+			this.faceTurn(4);
+			return solve4(1);
+		}
+		
+		if(yellow[1][0] == 0 && green[2][1] == 2 || yellow[1][0] == 2 && green[2][1] == 0) {
+			this.faceTurn(3);
+			return solve4(1);
+		}
+		
+		if(red[1][2] == 2 && blue[1][0] == 0) {
+			this.faceTurn(0);
+			this.faceTurn(1, false);
+			this.faceTurn(0,false);
+			return solve4(1);
+		}
+			
+		if(red[1][2] == 0 && blue[1][0] == 2) {
+			this.faceTurn(2);
+			return solve4(1);
+		}
+		
+		if(blue[1][2] == 2 && orange[1][0] ==0) {
+			this.faceTurn(2,false);
+			return solve4(1);
+		}
+			
+		if(blue[1][2] == 0 && orange[1][0] ==2) {
+			this.faceTurn(0,false);
+			this.faceTurn(4);
+			this.faceTurn(0,true);
+			return solve4(1);
+		}
+		
+		if(orange[1][2] == 2 && green[1][0] ==0) {
+			this.faceTurn(0,false);
+			this.faceTurn(4,false);
+			this.faceTurn(0,true);
+			return solve4(1);
+		}
+			
+		if(orange[1][2] == 0 && green[1][0] ==2) {
+			this.faceTurn(0,true,true);
+			this.faceTurn(3);
+			this.faceTurn(0,false, true);
+			return solve4(1);
+		}
+		
+		if(green[1][2] == 2 && red[1][0] == 0) {
+			this.faceTurn(0,true,true);
+			this.faceTurn(3, false);
+			this.faceTurn(0,false, true);
+			return solve4(1);
+		}
+			
+		if(green[1][2] == 0 && red[1][0] == 2) {
+			this.faceTurn(0);
+			this.faceTurn(1);
+			this.faceTurn(0,false);
+			return solve4(1);
+		}
+		
+		if(white[1][2] == 2 && blue[0][1] == 0) {
+			this.faceTurn(2);
+			this.faceTurn(0,false);
+			this.faceTurn(4);
+			this.faceTurn(0);			
+			return solve4(1);
+		}
+		
+		if(white[0][1] == 0 && orange[0][1] ==2) {
+			this.faceTurn(0);
+			return solve4(1);
+		}
+			
+		if(white[0][1] == 2 && orange[0][1] == 0) {
+			this.faceTurn(4,false);
+			this.faceTurn(2,false);
+			return solve4(1);
+		}
+			
+		if(white[1][0] == 0 && green[0][1] ==2) {
+			this.faceTurn(0,false,true);
+			return solve4(1);
+		}
+			
+		if(white[1][0] == 2 && green[0][1] == 0) {
+			this.faceTurn(3);
+			this.faceTurn(0);
+			this.faceTurn(1);
+			this.faceTurn(0,false);
+			return solve4(1);
+		}
+	}
+	
+	while(state == 2) {//white orange
+		
+	}
+	
+	while(state == 3) {//white green
+		
+	}
 }
 
 private void insert(int status) {//inserts corner/edge pairs in F2L

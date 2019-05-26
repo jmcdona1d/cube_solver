@@ -1148,6 +1148,99 @@ private boolean solve4(int state) {
 	
 	while(state == 2) {//white orange
 		
+		if(white[0][1] == 0 && orange[0][1] == 4) {return solve4(3);}
+		
+		if(yellow[0][1] == 0 && red[2][1] == 4 || yellow[0][1] == 4 && red[2][1] == 0) {
+			this.faceTurn(1);
+			return solve4(2);
+		}
+		
+		if(yellow[1][2] == 0 && blue[2][1] == 4 || yellow[1][2] == 4 && blue[2][1] == 0) {
+			this.faceTurn(2);
+			return solve4(2);
+		}
+		
+		if(yellow[2][1] == 0 && orange[2][1] == 4 || yellow[2][1] == 4 && orange[2][1] == 0) {
+			this.faceTurn(4);
+			return solve4(2);
+		}
+		
+		if(yellow[1][0] == 0 && green[2][1] == 4 || yellow[1][0] == 4 && green[2][1] == 0) {
+			this.faceTurn(3);
+			return solve4(2);
+		}
+		
+		if(red[1][2] == 4 && blue[1][0] == 0) {
+			this.faceTurn(0, true, true);
+			this.faceTurn(1, false);
+			this.faceTurn(0,false, true);
+			return solve4(2);
+		}
+			
+		if(red[1][2] == 0 && blue[1][0] == 4) {
+			this.faceTurn(0);
+			this.faceTurn(2);
+			this.faceTurn(0,false);
+			return solve4(2);
+		}
+		
+		if(blue[1][2] == 4 && orange[1][0] ==0) {
+			
+			this.faceTurn(0);
+			this.faceTurn(2,false);
+			this.faceTurn(0,false);
+			return solve4(2);
+		}
+			
+		if(blue[1][2] == 0 && orange[1][0] ==4) {
+			this.faceTurn(2);
+			return solve4(2);
+		}
+		
+		if(orange[1][2] == 4 && green[1][0] ==0) {
+			this.faceTurn(4,false);
+			return solve4(2);
+		}
+			
+		if(orange[1][2] == 0 && green[1][0] ==4) {
+			this.faceTurn(0,false);
+			this.faceTurn(3);
+			this.faceTurn(0);
+			return solve4(1);
+		}
+		
+		if(green[1][2] == 4 && red[1][0] == 0) {
+			this.faceTurn(0,false);
+			this.faceTurn(3, false);
+			this.faceTurn(0);
+			return solve4(2);
+		}
+			
+		if(green[1][2] == 0 && red[1][0] == 4) {
+			this.faceTurn(0,true,true);
+			this.faceTurn(1);
+			this.faceTurn(0,false,true);
+			return solve4(2);
+		}
+			
+		if(white[0][1] == 4 && orange[0][1] == 0) {
+			this.faceTurn(4,false);
+			this.faceTurn(0);
+			this.faceTurn(2,false);
+			this.faceTurn(0,false);
+			return solve4(2);
+		}
+			
+		if(white[1][0] == 0 && green[0][1] ==4) {
+			this.faceTurn(0,true);
+			return solve4(2);
+		}
+			
+		if(white[1][0] == 2 && green[0][1] == 0) {
+			this.faceTurn(3,false);
+			this.faceTurn(4,false);
+			return solve4(2);
+		}
 	}
 	
 	while(state == 3) {//white green
@@ -1463,7 +1556,7 @@ public static void main(String args[]) {
 	
 	
 //	cube.faceTurn(5);
-//
+
 //	cube.solveCube();
 	
 	cube.displayNet();

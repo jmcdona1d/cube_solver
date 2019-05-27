@@ -317,11 +317,11 @@ public void turnTest(int index) {// testing method for debugging turns
 
 public void solveCube() {//reorder/rename solve method names as more are added
 	
-	//while (solve4() != true);
+	while (solve4() != true);
 	//while(solve3()!= true);
-	while(solve2()!=true);
-	while(solve1()!=true);
-	while(solve0()!=true);
+//	while(solve2()!=true);
+//	while(solve1()!=true);
+//	while(solve0()!=true);
 	
 }
 
@@ -1206,7 +1206,7 @@ private boolean solve4(int state) {
 			this.faceTurn(0,false);
 			this.faceTurn(3);
 			this.faceTurn(0);
-			return solve4(1);
+			return solve4(2);
 		}
 		
 		if(green[1][2] == 4 && red[1][0] == 0) {
@@ -1245,7 +1245,81 @@ private boolean solve4(int state) {
 	
 	while(state == 3) {//white green
 		
+		if(white[1][0] == 0 && green[0][1] == 3) {return true;}
+		
+		if(yellow[0][1] == 0 && red[2][1] == 3 || yellow[0][1] == 3 && red[2][1] == 0) {
+			this.faceTurn(1);
+			return solve4(3);
+		}
+		
+		if(yellow[1][2] == 0 && blue[2][1] == 3 || yellow[1][2] == 3 && blue[2][1] == 0) {
+			this.faceTurn(2);
+			return solve4(3);
+		}
+		
+		if(yellow[2][1] == 0 && orange[2][1] == 3 || yellow[2][1] == 3 && orange[2][1] == 0) {
+			this.faceTurn(4);
+			return solve4(3);
+		}
+		
+		if(yellow[1][0] == 0 && green[2][1] == 3 || yellow[1][0] == 3 && green[2][1] == 0) {
+			this.faceTurn(3);
+			return solve4(3);
+		}
+		
+		if(red[1][2] == 3 && blue[1][0] == 0) {
+			this.faceTurn(0, false);
+			this.faceTurn(1, false);
+			this.faceTurn(0);
+			return solve4(3);
+		}
+			
+		if(red[1][2] == 0 && blue[1][0] == 3) {
+			this.faceTurn(0, true, true);
+			this.faceTurn(2);
+			this.faceTurn(0,false, true);
+			return solve4(3);
+		}
+		
+		if(blue[1][2] == 3 && orange[1][0] ==0) {
+			this.faceTurn(0,true,true);
+			this.faceTurn(2,false);
+			this.faceTurn(0,false,true);
+			return solve4(3);
+		}
+			
+		if(blue[1][2] == 0 && orange[1][0] ==3) {
+			this.faceTurn(0);
+			this.faceTurn(4);
+			this.faceTurn(0,false);
+			return solve4(3);
+		}
+		
+		if(orange[1][2] == 3 && green[1][0] ==0) {
+			this.faceTurn(0);
+			this.faceTurn(4,false);
+			this.faceTurn(0,false);
+			return solve4(3);
+		}
+			
+		if(orange[1][2] == 0 && green[1][0] ==3) {
+			this.faceTurn(3);
+			return solve4(3);
+		}
+		
+		if(green[1][2] == 3 && red[1][0] == 0) {
+			this.faceTurn(3, false);
+			return solve4(3);
+		}
+			
+		if(green[1][2] == 0 && red[1][0] == 3) {
+			this.faceTurn(0,false);
+			this.faceTurn(1);
+			this.faceTurn(0);
+			return solve4(3);
+		}
 	}
+	return false; //not reached
 }
 
 private void insert(int status) {//inserts corner/edge pairs in F2L

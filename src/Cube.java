@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 
 public class Cube {
@@ -317,7 +318,7 @@ public class Cube {
 	
 	public void solveCube() {//reorder/rename solve method names as more are added
 		
-		while (whiteCross() != true);
+		while (WhiteCross() != true);
 	//	while(F2L()!= true);
 	//	while(OLL()!=true);
 	//	while(PLL()!=true);
@@ -1039,7 +1040,7 @@ public class Cube {
 		
 		while(state == 1) {//white blue
 			
-			if(white[1][2] == 0 && blue[0][1] == 1) {return WhiteCross(2);}
+			if(white[1][2] == 0 && blue[0][1] == 2) {return WhiteCross(2);}
 			
 			if(yellow[0][1] == 0 && red[2][1] == 2 || yellow[0][1] == 2 && red[2][1] == 0) {
 				this.faceTurn(1);
@@ -1633,8 +1634,8 @@ public class Cube {
 	//	cube.solveCube();
 		
 		cube.displayNet();
-		
-		boolean garbage = cube.solve3();
+	
+		cube.solveCube();
 		cube.displayNet();
 	}
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 public class Cube {
 
 	private ArrayList<int[][]> sides; 
+	private int turnCount;
 	
 	private final static int white = 0;
 	private final static int red = 1;
@@ -22,6 +23,7 @@ public class Cube {
 	public Cube() {
 
 		sides = new ArrayList<int[][]>();
+		turnCount = 0;
 		
 		int[][] white = {{-1,-1,-1},{-1,0,-1,},{-1,-1,-1}}; //index 0
 		int[][] red = {{-1,-1,-1},{-1,1,-1,},{-1,-1,-1}};  //1
@@ -105,6 +107,8 @@ public class Cube {
 	public void faceTurn(int center, boolean direction) { //true for clockwise, false for CCW
 			//array values and indexes are: 0 - index, 1 - first corner coordinate 1, 2 - first corner coordinate 2, 
 			//3 - first edge coordinate, 4 - second edge coordinate, 5 - second corner coordinate 1, 6 - second corner coordinate 2
+			turnCount++;
+		
 			int[] side1 = {0,0,0,0,0,0,0};
 			int[] side2 = {0,0,0,0,0,0,0};
 			int[] side3 = {0,0,0,0,0,0,0}; 
@@ -316,13 +320,23 @@ public class Cube {
 		sides.add(index, centerFace);
 	}
 	
-	public void solveCube() {//reorder/rename solve method names as more are added
+	public int solveCube() {//reorder/rename solve method names as more are added
+		
+		turnCount = 0;
 		
 		while (WhiteCross() != true);
-	//	while(F2L()!= true);
-	//	while(OLL()!=true);
-	//	while(PLL()!=true);
-	//	while(finish()!=true);
+		
+		this.displayNet();
+		
+		while(F2L()!= true);
+		
+		this.displayNet();
+		
+		while(OLL()!=true);
+		while(PLL()!=true);
+		while(finish()!=true);
+		
+		return turnCount;
 		
 	}
 	
@@ -373,7 +387,7 @@ public class Cube {
 		   sideStatus[2] == 1 && sideStatus[3] == 1 || sideStatus[3] == 1 && sideStatus[1] == 1) {// all corners match
 			
 		if(sideStatus[0] == 1 && sideStatus[1] == 1 && sideStatus[2] == 1 && sideStatus[3] == 1) {
-				PLLalg2(1, true);// default to turn red
+				PLLAlg2(1, true);// default to turn red
 				return false;
 		}
 			
@@ -381,7 +395,7 @@ public class Cube {
 				for(int i = 0 ; i < 4; i++)
 					if(sideStatus[i] == 2) {
 						direction = PLLGetDir(i, check);
-						PLLalg2(i+1,direction);		
+						PLLAlg2(i+1,direction);		
 			}
 			return false;
 			}}
@@ -390,13 +404,13 @@ public class Cube {
 		   sideStatus[2] ==  1 && sideStatus[3] == 0 || sideStatus[3] == 1 && sideStatus[0] == 0 ) {//only one corner set matches
 			for(int i = 0; i<4; i++) {
 				if(sideStatus[i] == 1)
-					PLLalg1(i+1);
+					PLLAlg1(i+1);
 			}
 			return false;
 		}
 		
 		else
-			PLLalg1(1);//default to turn red
+			PLLAlg1(1);//default to turn red
 				return false;
 		
 	}
@@ -622,8 +636,9 @@ public class Cube {
 			if(yellow[0][2] == 3 && red[2][2] == 4 || yellow[0][2] == 4 && red[2][2] == 0 || yellow[0][2] == 0 && red[2][2] == 3) //check if corner is above blue-red
 				this.faceTurn(5,false,true);
 				
-			if(yellow[2][2] == 3 && blue[2][2] == 4 || yellow[2][2] == 4 && blue[2][2] == 0 || yellow[2][2] == 0 && blue[2][2] == 3)
+			if(yellow[2][2] == 3 && blue[2][2] == 4 || yellow[2][2] == 4 && blue[2][2] == 0 || yellow[2][2] == 0 && blue[2][2] == 3) {
 				this.faceTurn(5);
+			}
 				
 			//corner has to be in top layer now right above where it should go in
 			
@@ -687,6 +702,8 @@ public class Cube {
 		
 		while(status == 1) { //pair 2 - red - green
 			
+			this.displayNet();
+			
 			if(white[2][0] == 0 && red[0][0] == 1 && red[1][0] == 1 && green[0][2] == 3 && green[1][2] == 3)
 				return F2L(2);
 			
@@ -718,8 +735,9 @@ public class Cube {
 			if(yellow[0][2] == 0 && red[2][2] == 1 || yellow[0][2] == 1 && red[2][2] == 3 || yellow[0][2] == 3 && red[2][2] == 0) //check if corner is above blue-red
 				this.faceTurn(5,false);
 				
-			if(yellow[2][2] == 0 && blue[2][2] == 1 || yellow[2][2] == 1 && blue[2][2] == 3 || yellow[2][2] == 3 && blue[2][2] == 0)//check above blue-orange
+			if(yellow[2][2] == 0 && blue[2][2] == 1 || yellow[2][2] == 1 && blue[2][2] == 3 || yellow[2][2] == 3 && blue[2][2] == 0) {//check above blue-orange
 				this.faceTurn(5, true, true);
+		}
 			
 			//corner has to be in top layer now right above where it should go in
 			
@@ -758,10 +776,11 @@ public class Cube {
 			
 			if(yellow[2][1] == 3 && orange[2][1] == 1 || yellow[2][1] == 1 && orange[2][1] == 3) {// edge is in opposite spot of corner
 				this.faceTurn(5);
-				this.faceTurn(2, false);
+				this.faceTurn(1, false);
 				this.faceTurn(5, false);
-				this.faceTurn(2);
+				this.faceTurn(1);
 				this.faceTurn(5, false);
+				
 			}
 			
 			if(yellow[0][1] == 3 && red[2][1] == 1 || yellow[0][1] == 1 && red[2][1] == 3) {//edge is directly to left
@@ -770,7 +789,7 @@ public class Cube {
 				this.faceTurn(1);
 				this.faceTurn(5);	
 			}
-			
+			this.displayNet();
 			this.F2Linsert(1);
 		}
 		
@@ -1628,14 +1647,10 @@ public class Cube {
 		cube.setSide(4,o,o,b,o,g,o,r,w);
 		cube.setSide(5,y,y,g,g,y,g,y,w);
 		
-		
-	//	cube.faceTurn(5);
-	
-	//	cube.solveCube();
-		
 		cube.displayNet();
 	
-		cube.solveCube();
+		int m = cube.solveCube();
 		cube.displayNet();
+		System.out.println("Solved in " +m +" moves");
 	}
 }

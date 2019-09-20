@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Cube {
 
@@ -1651,9 +1652,28 @@ public class Cube {
 //		
 //	}
 	
+	public static Cube getRandomCube() {
+		
+		Cube cube = new Cube();
+		cube.setDefault();
+		
+		for(int i = 0; i < 20; i++) {
+			cube.faceTurn(getRandomNumberInRange(0,5));
+		}
+		
+		return cube;
+	}
+	
+	private static int getRandomNumberInRange(int min, int max) {
+		
+		Random r = new Random();
+		return r.ints(min, (max + 1)).limit(1).findFirst().getAsInt();
+	}
+	
 	public static void main(String args[]) {
 	
-		Cube cube = new Cube();
+		//Cube cube = new Cube();
+		
 		
 //		cube.setSide(0,o,w,w,w,w,b,b,y);
 //		cube.setSide(1,r,r,b,r,o,g,o,r);
@@ -1662,12 +1682,14 @@ public class Cube {
 //		cube.setSide(4,o,o,b,o,g,o,r,w);
 //		cube.setSide(5,y,y,g,g,y,g,y,w);
 		
-		cube.setSide(0,5,2,1,2,2,2,0,0);
-		cube.setSide(1,0,1,4,4,5,4,3,2);
-		cube.setSide(2,3,4,2,1,3,5,5,3);
-		cube.setSide(3,2,0,4,4,5,1,4,5);
-		cube.setSide(4,0,1,4,1,3,1,3,0);
-		cube.setSide(5,3,0,1,0,2,3,5,5);
+//		cube.setSide(0,5,2,1,2,2,2,0,0);
+//		cube.setSide(1,0,1,4,4,5,4,3,2);
+//		cube.setSide(2,3,4,2,1,3,5,5,3);
+//		cube.setSide(3,2,0,4,4,5,1,4,5);
+//		cube.setSide(4,0,1,4,1,3,1,3,0);
+//		cube.setSide(5,3,0,1,0,2,3,5,5);
+		
+		Cube cube = getRandomCube();
 		
 		cube.displayNet();
 	

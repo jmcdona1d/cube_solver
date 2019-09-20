@@ -333,6 +333,7 @@ public class Cube {
 		this.displayNet();
 		
 		while(OLL()!=true);
+		this.displayNet();
 		while(PLL()!=true);
 		while(finish()!=true);
 		
@@ -381,29 +382,31 @@ public class Cube {
 		}
 		
 		if(sideStatus[0] == 2 && sideStatus[1] == 2 && sideStatus[2] == 2 && sideStatus[3] == 2)//all the top is the same
-			return true;//write another function to line up completed line with centers
+			return true;
 		
 		if(sideStatus[0] == 1 && sideStatus[1] == 1 || sideStatus[1] == 1 && sideStatus[2] == 1 || 
-		   sideStatus[2] == 1 && sideStatus[3] == 1 || sideStatus[3] == 1 && sideStatus[1] == 1) {// all corners match
+				sideStatus[2] == 1 && sideStatus[3] == 1 || sideStatus[3] == 1 && sideStatus[1] == 1) {// all corners match
 			
-		if(sideStatus[0] == 1 && sideStatus[1] == 1 && sideStatus[2] == 1 && sideStatus[3] == 1) {
-				PLLAlg2(1, true);// default to turn red
-				return false;
-		}
-			
+			if(sideStatus[0] == 1 && sideStatus[1] == 1 && sideStatus[2] == 1 && sideStatus[3] == 1) {
+					PLLAlg2(1, true);// default to turn red
+					this.displayNet();
+					return false;
+			}
+				
 			else {
 				for(int i = 0 ; i < 4; i++)
 					if(sideStatus[i] == 2) {
 						direction = PLLGetDir(i, check);
 						PLLAlg2(i+1,direction);		
 			}
+				this.displayNet();
 			return false;
 			}}
 						
-		else if(sideStatus[0] ==  1 && sideStatus[1] == 0 || sideStatus[1] == 1 && sideStatus[2] == 0 ||
-		   sideStatus[2] ==  1 && sideStatus[3] == 0 || sideStatus[3] == 1 && sideStatus[0] == 0 ) {//only one corner set matches
+		else if(sideStatus[0] != 0 && sideStatus[1] == 0 || sideStatus[1] != 0 && sideStatus[2] == 0 ||
+		   sideStatus[2] != 0 && sideStatus[3] == 0 || sideStatus[3] != 0 && sideStatus[0] == 0 ) {//only one corner set matches
 			for(int i = 0; i<4; i++) {
-				if(sideStatus[i] == 1)
+				if(sideStatus[i] != 0)
 					PLLAlg1(i+1);
 			}
 			return false;
@@ -411,6 +414,7 @@ public class Cube {
 		
 		else
 			PLLAlg1(1);//default to turn red
+		this.displayNet();
 				return false;
 		
 	}
@@ -599,7 +603,7 @@ public class Cube {
 		
 		while(status == 0) { //corner 1 - orange and green
 			
-			if(white[0][0] == 0 && orange[0][2] == 4 && green[0][0] == 3 && orange[1][0] == 4 && green[1][0] == 3)
+			if(white[0][0] == 0 && orange[0][2] == 4 && green[0][0] == 3 && orange[1][2] == 4 && green[1][0] == 3)
 				return F2L(1);
 			
 			if(white[0][0] == 0 && orange[0][2] == 4 || white[0][0] == 3 && orange[0][2] == 0 || white[0][0] == 4 && orange[0][2] == 3) { //check if corner is in green-orange
@@ -627,6 +631,7 @@ public class Cube {
 				this.faceTurn(5);
 				this.faceTurn(3, false);
 				this.faceTurn(5,true,true);
+				this.displayNet();
 			}
 			
 			//see if corner was in top layer already
@@ -672,6 +677,7 @@ public class Cube {
 				this.faceTurn(5, false);
 				this.faceTurn(3, false);
 				this.faceTurn(5,true,true);
+				this.displayNet();
 			}	
 			
 			if(yellow[2][1] == 3 && orange[2][1] == 4 || yellow[2][1] == 4 && orange[2][1] == 3) {//edge is directly to right (orange-yellow)
@@ -1450,6 +1456,7 @@ public class Cube {
 				this.faceTurn(right);
 				this.faceTurn(yellow);
 				this.faceTurn(right,false);
+				this.displayNet();
 			}			
 		}
 	}
@@ -1636,16 +1643,31 @@ public class Cube {
 		}
 	}
 	
+	
+//	private void createDisplay() {
+//	
+//		Cube originalState = this;
+//		
+//		
+//	}
+	
 	public static void main(String args[]) {
 	
 		Cube cube = new Cube();
 		
-		cube.setSide(0,o,w,w,w,w,b,b,y);
-		cube.setSide(1,r,r,b,r,o,g,o,r);
-		cube.setSide(2,r,b,b,g,b,y,b,g);
-		cube.setSide(3,y,g,w,y,w,r,r,o);
-		cube.setSide(4,o,o,b,o,g,o,r,w);
-		cube.setSide(5,y,y,g,g,y,g,y,w);
+//		cube.setSide(0,o,w,w,w,w,b,b,y);
+//		cube.setSide(1,r,r,b,r,o,g,o,r);
+//		cube.setSide(2,r,b,b,g,b,y,b,g);
+//		cube.setSide(3,y,g,w,y,w,r,r,o);
+//		cube.setSide(4,o,o,b,o,g,o,r,w);
+//		cube.setSide(5,y,y,g,g,y,g,y,w);
+		
+		cube.setSide(0,5,2,1,2,2,2,0,0);
+		cube.setSide(1,0,1,4,4,5,4,3,2);
+		cube.setSide(2,3,4,2,1,3,5,5,3);
+		cube.setSide(3,2,0,4,4,5,1,4,5);
+		cube.setSide(4,0,1,4,1,3,1,3,0);
+		cube.setSide(5,3,0,1,0,2,3,5,5);
 		
 		cube.displayNet();
 	

@@ -85,6 +85,7 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
+import PostCubeState from "./components/PostCubeState";
 
 class App extends Component {
   state = {
@@ -110,7 +111,7 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <div className="App-intro">
-            <h2>JUG List</h2>
+            <PostCubeState />
             {groups.map(group => (
               <div key={group.id}>{group.costInCents}</div>
             ))}

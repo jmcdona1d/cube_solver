@@ -1,8 +1,12 @@
-import org.codehaus.jackson.annotate.JsonProperty;
+package com.dzone.albanoj2.example.rest.resource;
 
-public class OrderResource extends org.springframework.hateoas.ResourceSupport{
+import org.springframework.hateoas.ResourceSupport;
 
-	
+import com.dzone.albanoj2.example.rest.domain.Order;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class OrderResource extends ResourceSupport {
+
 	private final long id;
 	private final String description;
 	private final long costInCents;
@@ -14,9 +18,8 @@ public class OrderResource extends org.springframework.hateoas.ResourceSupport{
 		costInCents = order.getCostInCents();
 		isComplete = order.isComplete();
 	}
-	
-	
-    @JsonProperty("id")
+
+	@JsonProperty("id")
 	public Long getResourceId() {
 		return id;
 	}
@@ -24,11 +27,11 @@ public class OrderResource extends org.springframework.hateoas.ResourceSupport{
 	public String getDescription() {
 		return description;
 	}
-	
+
 	public long getCostInCents() {
 		return costInCents;
 	}
-	
+
 	public boolean isComplete() {
 		return isComplete;
 	}

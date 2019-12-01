@@ -1,17 +1,21 @@
+package com.dzone.albanoj2.example.rest.resource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.EntityLinks;
 import org.springframework.hateoas.Link;
 import org.springframework.stereotype.Component;
 
+import com.dzone.albanoj2.example.rest.domain.Order;
+
 @Component
-public class OrderResourceAssembler extends ResourceAssembler<Order, OrderResource>{
+public class OrderResourceAssembler extends ResourceAssembler<Order, OrderResource> {
 	
 	@Autowired
 	protected EntityLinks entityLinks;
-	
-	private static final String UPDATE_REL = "Update";
+
+	private static final String UPDATE_REL = "update";
 	private static final String DELETE_REL = "delete";
-	
+
 	@Override
 	public OrderResource toResource(Order order) {
 		
@@ -25,5 +29,4 @@ public class OrderResourceAssembler extends ResourceAssembler<Order, OrderResour
 		
 		return resource;
 	}
-
 }

@@ -11,5 +11,6 @@ public class OrderRepository extends InMemoryRepository<Order> {
 		original.setDescription(updated.getDescription());
 		original.setCostInCents(updated.getCostInCents());
 		original.setComplete(updated.isComplete());
+		original.setResult(updated.getResult());
 	}
 }

@@ -10,20 +10,22 @@ public class OrderResource extends ResourceSupport {
 	private final long id;
 	private final String description;
 	private final long costInCents;
+	private final String result;
 	private final boolean isComplete;
-	
+
 	public OrderResource(Order order) {
 		id = order.getId();
 		description = order.getDescription();
 		costInCents = order.getCostInCents();
 		isComplete = order.isComplete();
+		result = order.getResult();
 	}
 
 	@JsonProperty("id")
 	public Long getResourceId() {
 		return id;
 	}
-	
+
 	public String getDescription() {
 		return description;
 	}
@@ -34,5 +36,9 @@ public class OrderResource extends ResourceSupport {
 
 	public boolean isComplete() {
 		return isComplete;
+	}
+
+	public String getResult() {
+		return result;
 	}
 }

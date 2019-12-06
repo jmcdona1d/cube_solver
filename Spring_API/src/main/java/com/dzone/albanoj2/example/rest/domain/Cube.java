@@ -40,7 +40,72 @@ public class Cube {
         sides.add(green);
         sides.add(orange);
         sides.add(yellow);
+    }
 
+    /*
+     * cubeString will consist of 6 8-character sequences - separated by spaces.
+     * Each sequence character represents that squares colour as they get populated
+     * based on the net chart from index 0 to index 8 (skipping index 4 since it is
+     * the center.
+     * 
+     * Numbers Example:
+     */
+
+    public Cube(String cubeString) {
+
+        char[] chars = cubeString.toCharArray();
+
+        sides = new ArrayList<int[][]>();
+        turnCount = 0;
+
+        int[][] white = {
+                { Character.getNumericValue(chars[0]), Character.getNumericValue(chars[1]),
+                        Character.getNumericValue(chars[2]) },
+                { Character.getNumericValue(chars[3]), 0, Character.getNumericValue(chars[4]) },
+                { Character.getNumericValue(chars[5]), Character.getNumericValue(chars[6]),
+                        Character.getNumericValue(chars[7]) } };
+        // skip 8 for sapce
+        int[][] red = {
+                { Character.getNumericValue(chars[9]), Character.getNumericValue(chars[10]),
+                        Character.getNumericValue(chars[11]) },
+                { Character.getNumericValue(chars[12]), 1, Character.getNumericValue(chars[13]) },
+                { Character.getNumericValue(chars[14]), Character.getNumericValue(chars[15]),
+                        Character.getNumericValue(chars[16]) } };
+        // skip 17
+        int[][] blue = {
+                { Character.getNumericValue(chars[18]), Character.getNumericValue(chars[19]),
+                        Character.getNumericValue(chars[20]) },
+                { Character.getNumericValue(chars[21]), 2, Character.getNumericValue(chars[22]) },
+                { Character.getNumericValue(chars[23]), Character.getNumericValue(chars[24]),
+                        Character.getNumericValue(chars[25]) } };
+        // skip 26
+        int[][] green = {
+                { Character.getNumericValue(chars[27]), Character.getNumericValue(chars[28]),
+                        Character.getNumericValue(chars[29]) },
+                { Character.getNumericValue(chars[30]), 3, Character.getNumericValue(chars[31]) },
+                { Character.getNumericValue(chars[32]), Character.getNumericValue(chars[33]),
+                        Character.getNumericValue(chars[34]) } };
+        // skip 35
+        int[][] orange = {
+                { Character.getNumericValue(chars[36]), Character.getNumericValue(chars[37]),
+                        Character.getNumericValue(chars[38]) },
+                { Character.getNumericValue(chars[39]), 4, Character.getNumericValue(chars[40]) },
+                { Character.getNumericValue(chars[41]), Character.getNumericValue(chars[42]),
+                        Character.getNumericValue(chars[43]) } };
+        // skip 44
+        int[][] yellow = {
+                { Character.getNumericValue(chars[45]), Character.getNumericValue(chars[46]),
+                        Character.getNumericValue(chars[47]) },
+                { Character.getNumericValue(chars[48]), 5, Character.getNumericValue(chars[49]) },
+                { Character.getNumericValue(chars[50]), Character.getNumericValue(chars[51]),
+                        Character.getNumericValue(chars[52]) } };
+
+        sides.add(white);
+        sides.add(red);
+        sides.add(blue);
+        sides.add(green);
+        sides.add(orange);
+        sides.add(yellow);
     }
 
     public void setSide(int index, int one, int two, int three, int four, int five, int six, int seven, int eight) {
@@ -431,7 +496,8 @@ public class Cube {
 
         else if (sideStatus[0] != 0 && sideStatus[1] == 0 || sideStatus[1] != 0 && sideStatus[2] == 0
                 || sideStatus[2] != 0 && sideStatus[3] == 0 || sideStatus[3] != 0 && sideStatus[0] == 0) {// only one
-                                                                                                          // corner set
+                                                                                                          // corner
+                                                                                                          // set
                                                                                                           // matches
             for (int i = 0; i < 4; i++) {
                 if (sideStatus[i] != 0)
@@ -1772,30 +1838,37 @@ public class Cube {
         return r.ints(min, (max + 1)).limit(1).findFirst().getAsInt();
     }
 
-    public static void main(String args[]) {
-
-        // Cube cube = new Cube();
-
-        // cube.setSide(0,o,w,w,w,w,b,b,y);
-        // cube.setSide(1,r,r,b,r,o,g,o,r);
-        // cube.setSide(2,r,b,b,g,b,y,b,g);
-        // cube.setSide(3,y,g,w,y,w,r,r,o);
-        // cube.setSide(4,o,o,b,o,g,o,r,w);
-        // cube.setSide(5,y,y,g,g,y,g,y,w);
-
-        // cube.setSide(0,5,2,1,2,2,2,0,0);
-        // cube.setSide(1,0,1,4,4,5,4,3,2);
-        // cube.setSide(2,3,4,2,1,3,5,5,3);
-        // cube.setSide(3,2,0,4,4,5,1,4,5);
-        // cube.setSide(4,0,1,4,1,3,1,3,0);
-        // cube.setSide(5,3,0,1,0,2,3,5,5);
-
-        Cube cube = getRandomCube();
-
-        cube.displayNet();
-
-        int m = cube.solveCube();
-        cube.displayNet();
-        System.out.println("Solved in " + m + " moves");
+    public String springTest() {
+        return "testing worked";
     }
+
+    // public static void main(String args[]) {
+
+    // Cube cube = new Cube();
+
+    // // cube.setSide(0,o,w,w,w,w,b,b,y);
+    // // cube.setSide(1,r,r,b,r,o,g,o,r);
+    // // cube.setSide(2,r,b,b,g,b,y,b,g);
+    // // cube.setSide(3,y,g,w,y,w,r,r,o);
+    // // cube.setSide(4,o,o,b,o,g,o,r,w);
+    // // cube.setSide(5,y,y,g,g,y,g,y,w);
+
+    // cube.setSide(0,5,2,1,2,2,2,0,0);
+    // cube.setSide(1,0,1,4,4,5,4,3,2);
+    // cube.setSide(2,3,4,2,1,3,5,5,3);
+    // cube.setSide(3,2,0,4,4,5,1,4,5);
+    // cube.setSide(4,0,1,4,1,3,1,3,0);
+    // cube.setSide(5,3,0,1,0,2,3,5,5);
+
+    // // Cube cube = getRandomCube();
+    // String str = "52122200 01445432 34213553 20445145 01413130 530102355";
+    // Cube cube2= new Cube(str);
+
+    // cube.displayNet();
+    // cube2.displayNet();
+    // //
+    // // int m = cube.solveCube();
+    // // cube.displayNet();
+    // // System.out.println("Solved in " +m +" moves");
+    // }
 }

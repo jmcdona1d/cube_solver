@@ -55,6 +55,11 @@ public class Order implements Identifiable {
 	}
 
 	public void setResult(String result) {
-		this.result = result;
+		String set = (result == null || result.length() < 52) ? "52122200 01445432 34213553 20445145 01413130 530102355"
+				: result;
+		Cube c = new Cube(set);
+		System.out.println(set);
+		this.result = c.springTest();
+		// this.result = c.springTest();
 	}
 }

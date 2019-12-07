@@ -12,6 +12,7 @@ public class OrderResource extends ResourceSupport {
 	private final long costInCents;
 	private final String result;
 	private final boolean isComplete;
+	private final String input;
 
 	public OrderResource(Order order) {
 		id = order.getId();
@@ -19,6 +20,7 @@ public class OrderResource extends ResourceSupport {
 		costInCents = order.getCostInCents();
 		isComplete = order.isComplete();
 		result = order.getResult();
+		input = order.getInput();
 	}
 
 	@JsonProperty("id")
@@ -40,5 +42,9 @@ public class OrderResource extends ResourceSupport {
 
 	public String getResult() {
 		return result;
+	}
+
+	public String getInput() {
+		return input;
 	}
 }

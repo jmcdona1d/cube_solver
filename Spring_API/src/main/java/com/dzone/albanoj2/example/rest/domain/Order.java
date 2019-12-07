@@ -6,6 +6,7 @@ public class Order implements Identifiable {
 	private String description;
 	private long costInCents;
 	private boolean isComplete;
+	private String input;
 	private String result;
 
 	@Override
@@ -48,6 +49,14 @@ public class Order implements Identifiable {
 
 	public boolean isComplete() {
 		return isComplete;
+	}
+
+	public String getInput() {
+		return input;
+	}
+
+	public void setInput(String input) {
+		this.setInput(input);
 	}
 
 	public String getResult() {

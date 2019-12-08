@@ -113,7 +113,7 @@ class App extends Component {
           <div className="App-intro">
             <PostCubeState />
             {groups.map(group => (
-              <div key={group.id}>{group.costInCents}</div>
+              <div key={group.id}>{group.result}</div>
             ))}
           </div>
         </header>

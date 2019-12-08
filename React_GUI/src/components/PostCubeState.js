@@ -5,7 +5,8 @@ export default class PostCubeState extends React.Component {
   emptyItem = {
     description: "",
     costInCents: "",
-    complete: ""
+    complete: "",
+    result: ""
   };
 
   constructor(props) {
@@ -91,6 +92,17 @@ export default class PostCubeState extends React.Component {
                 value={item.complete || ""}
                 onChange={this.handleChange}
                 autoComplete="complete"
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label for="result">Result</Label>
+              <Input
+                type="text"
+                name="result"
+                id="result"
+                value={item.result || ""}
+                onChange={this.handleChange}
+                autoComplete="result"
               />
             </FormGroup>
             {/* might need to make complet -> boolean or remove it since it is assigned */}

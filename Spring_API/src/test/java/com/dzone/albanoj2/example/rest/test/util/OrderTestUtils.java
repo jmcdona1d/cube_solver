@@ -17,8 +17,7 @@ public class OrderTestUtils {
 		order.setDescription("test description");
 		order.setCostInCents(150L);
 		order.markIncomplete();
-		order.setInput("yee");
-		order.setResult("52122200 01445432 34213553 20445145 01413130 530102355");
+		order.setInput("52122200 01445432 34213553 20445145 01413130 530102355");
 		return order;
 	}
 

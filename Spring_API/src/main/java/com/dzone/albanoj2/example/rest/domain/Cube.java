@@ -7,6 +7,7 @@ public class Cube {
 
     private ArrayList<int[][]> sides;
     private int turnCount;
+    private String solveInstructions;
 
     private final static int white = 0;
     private final static int red = 1;
@@ -26,6 +27,7 @@ public class Cube {
 
         sides = new ArrayList<int[][]>();
         turnCount = 0;
+        solveInstructions = "";
 
         int[][] white = { { -1, -1, -1 }, { -1, 0, -1, }, { -1, -1, -1 } }; // index 0
         int[][] red = { { -1, -1, -1 }, { -1, 1, -1, }, { -1, -1, -1 } }; // 1
@@ -56,6 +58,7 @@ public class Cube {
         char[] chars = cubeString.toCharArray();
 
         sides = new ArrayList<int[][]>();
+        solveInstructions = "";
         turnCount = 0;
 
         int[][] white = {
@@ -357,7 +360,7 @@ public class Cube {
 
         sides = newSides;
         // this.displayNet(); //remove comment while debugging
-
+        addTurn(center, direction);
     }
 
     public void faceTurn(int center) {// default the call to a clockwise turn unless specified
@@ -1813,12 +1816,11 @@ public class Cube {
         }
     }
 
-    // private void createDisplay() {
-    //
-    // Cube originalState = this;
-    //
-    //
-    // }
+    private void addTurn(int center, boolean direction) {
+
+        this.solveInstructions += (char) (center + '0');
+        this.solveInstructions += direction ? "  " : "` ";
+    }
 
     public static Cube getRandomCube() {
 

@@ -7,7 +7,8 @@ public class Order implements Identifiable {
 	private long costInCents;
 	private boolean isComplete;
 	private String input;
-	private String result;
+	private String[] result;
+	private String firstSet;
 
 	@Override
 	public Long getId() {
@@ -61,14 +62,23 @@ public class Order implements Identifiable {
 		this.input = set;
 		Cube c = new Cube(this.input);
 		int j = c.solveCube();
-		setResult(c.getSolveInstructions());
+		setResult(c.getSolveInstructionsArray());
+		setFirstSet(c.getSolveInstructionsArray()[0]);
 	}
 
-	public String getResult() {
+	public String[] getResult() {
 		return result;
 	}
 
-	public void setResult(String result) {
+	public void setResult(String[] result) {
 		this.result = result;
+	}
+
+	public void setFirstSet(String firstSet) {
+		this.firstSet = firstSet;
+	}
+
+	public String getFirstSet() {
+		return this.firstSet;
 	}
 }

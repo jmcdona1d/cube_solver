@@ -10,9 +10,10 @@ public class OrderResource extends ResourceSupport {
 	private final long id;
 	private final String description;
 	private final long costInCents;
-	private final String result;
+	private final String[] result;
 	private final boolean isComplete;
 	private final String input;
+	private final String firstSet;
 
 	public OrderResource(Order order) {
 		id = order.getId();
@@ -21,6 +22,7 @@ public class OrderResource extends ResourceSupport {
 		isComplete = order.isComplete();
 		result = order.getResult();
 		input = order.getInput();
+		firstSet = order.getFirstSet();
 	}
 
 	@JsonProperty("id")
@@ -40,11 +42,15 @@ public class OrderResource extends ResourceSupport {
 		return isComplete;
 	}
 
-	public String getResult() {
+	public String[] getResult() {
 		return result;
 	}
 
 	public String getInput() {
 		return input;
+	}
+
+	public String getFirstSet() {
+		return firstSet;
 	}
 }

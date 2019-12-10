@@ -1855,8 +1855,12 @@ public class Cube {
         return "testing worked";
     }
 
-    public String getAllSolveInstructions() {
+    public String getAllSolveInstructionsString() {
         return Arrays.toString(this.solveInstructions);
+    }
+
+    public String[] getSolveInstructionsArray() {
+        return this.solveInstructions;
     }
 
     // public static void main(String args[]) {

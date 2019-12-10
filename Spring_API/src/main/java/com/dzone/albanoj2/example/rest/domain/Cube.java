@@ -1818,8 +1818,8 @@ public class Cube {
 
     private void addTurn(int center, boolean direction) {
 
-        this.solveInstructions += (char) (center + '0');
-        this.solveInstructions += direction ? "  " : "` ";
+        solveInstructions += (char) (center + '0');
+        solveInstructions += direction ? "  " : "` ";
     }
 
     public static Cube getRandomCube() {
@@ -1844,6 +1844,10 @@ public class Cube {
         return "testing worked";
     }
 
+    public String getSolveInstructions() {
+        return this.solveInstructions;
+    }
+
     // public static void main(String args[]) {
 
     // Cube cube = new Cube();
@@ -1863,7 +1867,7 @@ public class Cube {
     // cube.setSide(5,3,0,1,0,2,3,5,5);
 
     // // Cube cube = getRandomCube();
-    // String str = "52122200 01445432 34213553 20445145 01413130 530102355";
+    // String str = "52122200 01445432 34213553 20445145 01413130 30102355";
     // Cube cube2= new Cube(str);
 
     // cube.displayNet();

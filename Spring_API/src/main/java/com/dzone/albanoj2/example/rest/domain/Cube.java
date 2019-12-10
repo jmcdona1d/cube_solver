@@ -1,13 +1,15 @@
 package com.dzone.albanoj2.example.rest.domain;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 public class Cube {
 
     private ArrayList<int[][]> sides;
     private int turnCount;
-    private String solveInstructions;
+    private String[] solveInstructions;
+    private int state;
 
     private final static int white = 0;
     private final static int red = 1;
@@ -27,7 +29,8 @@ public class Cube {
 
         sides = new ArrayList<int[][]>();
         turnCount = 0;
-        solveInstructions = "";
+        solveInstructions = new String[] { "", "", "", "", "" };
+        state = 0;
 
         int[][] white = { { -1, -1, -1 }, { -1, 0, -1, }, { -1, -1, -1 } }; // index 0
         int[][] red = { { -1, -1, -1 }, { -1, 1, -1, }, { -1, -1, -1 } }; // 1
@@ -58,8 +61,9 @@ public class Cube {
         char[] chars = cubeString.toCharArray();
 
         sides = new ArrayList<int[][]>();
-        solveInstructions = "";
         turnCount = 0;
+        solveInstructions = new String[] { "", "", "", "", "" };
+        state = 0;
 
         int[][] white = {
                 { Character.getNumericValue(chars[0]), Character.getNumericValue(chars[1]),
@@ -409,19 +413,26 @@ public class Cube {
             ;
 
         this.displayNet();
+        this.state++;
 
         while (F2L() != true)
             ;
 
         this.displayNet();
+        this.state++;
 
         while (OLL() != true)
             ;
         this.displayNet();
+        this.state++;
+
         while (PLL() != true)
             ;
+        this.state++;
+
         while (finish() != true)
             ;
+        this.state++;
 
         return turnCount;
 
@@ -1818,8 +1829,8 @@ public class Cube {
 
     private void addTurn(int center, boolean direction) {
 
-        solveInstructions += (char) (center + '0');
-        solveInstructions += direction ? "  " : "` ";
+        solveInstructions[this.state] += (char) (center + '0');
+        solveInstructions[this.state] += direction ? "  " : "` ";
     }
 
     public static Cube getRandomCube() {
@@ -1844,8 +1855,8 @@ public class Cube {
         return "testing worked";
     }
 
-    public String getSolveInstructions() {
-        return this.solveInstructions;
+    public String getAllSolveInstructions() {
+        return Arrays.toString(this.solveInstructions);
     }
 
     // public static void main(String args[]) {
@@ -1869,12 +1880,13 @@ public class Cube {
     // // Cube cube = getRandomCube();
     // String str = "52122200 01445432 34213553 20445145 01413130 30102355";
     // Cube cube2= new Cube(str);
-
     // cube.displayNet();
     // cube2.displayNet();
-    // //
-    // // int m = cube.solveCube();
+
+    // int m = cube2.solveCube();
     // // cube.displayNet();
     // // System.out.println("Solved in " +m +" moves");
+    // System.out.println("inst:" +cube2.getAllSolveInstructions());
+
     // }
 }

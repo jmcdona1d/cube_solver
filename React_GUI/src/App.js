@@ -113,7 +113,13 @@ class App extends Component {
           <div className="App-intro">
             <PostCubeState />
             {groups.map(group => (
-              <div key={group.id}>{group.firstSet}</div>
+              <div>
+                <div key={group.id}>{group.whiteCross}</div>
+                <div key={group.id}>{group.f2L}</div>
+                <div key={group.id}>{group.oll}</div>
+                <div key={group.id}>{group.pll}</div>
+                <div key={group.id}>{group.finish}</div>
+              </div>
             ))}
           </div>
         </header>

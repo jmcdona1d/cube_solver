@@ -13,7 +13,11 @@ public class OrderResource extends ResourceSupport {
 	private final String[] result;
 	private final boolean isComplete;
 	private final String input;
-	private final String firstSet;
+	private final String whiteCross;
+	private final String F2L;
+	private final String PLL;
+	private final String OLL;
+	private final String finish;
 
 	public OrderResource(Order order) {
 		id = order.getId();
@@ -22,7 +26,11 @@ public class OrderResource extends ResourceSupport {
 		isComplete = order.isComplete();
 		result = order.getResult();
 		input = order.getInput();
-		firstSet = order.getFirstSet();
+		whiteCross = order.getWhiteCross();
+		F2L = order.getF2L();
+		PLL = order.getPLL();
+		OLL = order.getOLL();
+		finish = order.getFinish();
 	}
 
 	@JsonProperty("id")
@@ -50,7 +58,23 @@ public class OrderResource extends ResourceSupport {
 		return input;
 	}
 
-	public String getFirstSet() {
-		return firstSet;
+	public String getWhiteCross() {
+		return whiteCross;
+	}
+
+	public String getF2L() {
+		return F2L;
+	}
+
+	public String getPLL() {
+		return PLL;
+	}
+
+	public String getOLL() {
+		return OLL;
+	}
+
+	public String getFinish() {
+		return finish;
 	}
 }

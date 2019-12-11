@@ -8,7 +8,11 @@ public class Order implements Identifiable {
 	private boolean isComplete;
 	private String input;
 	private String[] result;
-	private String firstSet;
+	private String whiteCross;
+	private String F2L;
+	private String OLL;
+	private String PLL;
+	private String finish;
 
 	@Override
 	public Long getId() {
@@ -62,8 +66,13 @@ public class Order implements Identifiable {
 		this.input = set;
 		Cube c = new Cube(this.input);
 		int j = c.solveCube();
-		setResult(c.getSolveInstructionsArray());
-		setFirstSet(c.getSolveInstructionsArray()[0]);
+		String[] instructions = c.getSolveInstructionsArray();
+		setResult(instructions);
+		setWhiteCross(instructions[0]);
+		setF2L(instructions[1]);
+		setPLL(instructions[2]);
+		setOLL(instructions[3]);
+		setFinish(instructions[4]);
 	}
 
 	public String[] getResult() {
@@ -74,11 +83,43 @@ public class Order implements Identifiable {
 		this.result = result;
 	}
 
-	public void setFirstSet(String firstSet) {
-		this.firstSet = firstSet;
+	public void setWhiteCross(String whiteCross) {
+		this.whiteCross = whiteCross;
 	}
 
-	public String getFirstSet() {
-		return this.firstSet;
+	public String getWhiteCross() {
+		return this.whiteCross;
+	}
+
+	public void setF2L(String F2L) {
+		this.F2L = F2L;
+	}
+
+	public String getF2L() {
+		return this.F2L;
+	}
+
+	public void setOLL(String OLL) {
+		this.OLL = OLL;
+	}
+
+	public String getOLL() {
+		return this.OLL;
+	}
+
+	public void setPLL(String PLL) {
+		this.PLL = PLL;
+	}
+
+	public String getPLL() {
+		return this.PLL;
+	}
+
+	public void setFinish(String finish) {
+		this.finish = finish;
+	}
+
+	public String getFinish() {
+		return this.finish;
 	}
 }

@@ -18,6 +18,7 @@ export default class PostCubeState extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.resetDisplay = this.resetDisplay.bind(this);
   }
 
   async componentDidMount() {
@@ -49,6 +50,14 @@ export default class PostCubeState extends React.Component {
     const { item } = this.state;
 
     await fetch("/order", {
+      method: "DELETE",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    });
+
+    await fetch("/order", {
       method: item.id ? "PUT" : "POST",
       headers: {
         Accept: "application/json",
@@ -59,6 +68,10 @@ export default class PostCubeState extends React.Component {
     // this.props.history.push('/order');
     this.setState({ solutionDisplayed: true });
     //window.location.reload();
+  }
+
+  resetDisplay() {
+    this.setState({ solutionDisplayed: false });
   }
 
   render() {
@@ -138,6 +151,9 @@ export default class PostCubeState extends React.Component {
               <div key={group.id}>{group.finish}</div>
             </div>
           ))}
+          <Button color="primary" onClick={this.resetDisplay}>
+            Return
+          </Button>
         </div>
       );
     }

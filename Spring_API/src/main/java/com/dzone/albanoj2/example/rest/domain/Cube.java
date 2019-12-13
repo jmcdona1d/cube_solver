@@ -308,7 +308,8 @@ public class Cube {
             sideFace2[side2[1]][side2[2]] = cornerHold1;
             sideFace2[side2[3]][side2[4]] = edgeHold;
             sideFace2[side2[5]][side2[6]] = cornerHold2;
-            System.out.println("********Clockwise ROTATION around side " + center + "*****************");
+            // System.out.println("********Clockwise ROTATION around side " + center +
+            // "*****************");
         }
 
         else {
@@ -337,7 +338,8 @@ public class Cube {
             sideFace4[side4[1]][side4[2]] = cornerHold1;
             sideFace4[side4[3]][side4[4]] = edgeHold;
             sideFace4[side4[5]][side4[6]] = cornerHold2;
-            System.out.println("*****Counter-Clockwise ROTATION around side " + center + "*************");
+            // System.out.println("*****Counter-Clockwise ROTATION around side " + center +
+            // "*************");
         }
         // rewrites all new faces to their old locations in the array list
         ArrayList<int[][]> newSides = new ArrayList<int[][]>(6);
@@ -412,18 +414,18 @@ public class Cube {
         while (WhiteCross() != true)
             ;
 
-        this.displayNet();
+        // this.displayNet();
         this.state++;
 
         while (F2L() != true)
             ;
 
-        this.displayNet();
+        // this.displayNet();
         this.state++;
 
         while (OLL() != true)
             ;
-        this.displayNet();
+        // this.displayNet();
         this.state++;
 
         while (PLL() != true)
@@ -1738,7 +1740,7 @@ public class Cube {
         this.faceTurn(back, true, true);
         this.faceTurn(side, true, true);
 
-        this.displayNet();
+        // this.displayNet();
     }
 
     private void PLLAlg2(int back, boolean direction /* true is CW, false is CCW */) {
@@ -1757,7 +1759,7 @@ public class Cube {
         this.faceTurn(5, direction);
         this.faceTurn(front, true, true);
 
-        this.displayNet();
+        // this.displayNet();
 
     }
 

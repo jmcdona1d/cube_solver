@@ -110,17 +110,8 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <div className="App-intro">
+          <div className="App-body">
             <PostCubeState />
-            {groups.map(group => (
-              <div>
-                <div key={group.id}>{group.whiteCross}</div>
-                <div key={group.id}>{group.f2L}</div>
-                <div key={group.id}>{group.oll}</div>
-                <div key={group.id}>{group.pll}</div>
-                <div key={group.id}>{group.finish}</div>
-              </div>
-            ))}
           </div>
         </header>
       </div>

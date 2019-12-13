@@ -10,6 +10,7 @@ public class Cube {
     private int turnCount;
     private String[] solveInstructions;
     private int state;
+    private boolean debug;
 
     private final static int white = 0;
     private final static int red = 1;
@@ -31,6 +32,8 @@ public class Cube {
         turnCount = 0;
         solveInstructions = new String[] { "", "", "", "", "" };
         state = 0;
+        // change for wanting displayed nets
+        debug = false;
 
         int[][] white = { { -1, -1, -1 }, { -1, 0, -1, }, { -1, -1, -1 } }; // index 0
         int[][] red = { { -1, -1, -1 }, { -1, 1, -1, }, { -1, -1, -1 } }; // 1
@@ -64,6 +67,7 @@ public class Cube {
         turnCount = 0;
         solveInstructions = new String[] { "", "", "", "", "" };
         state = 0;
+        debug = false;
 
         int[][] white = {
                 { Character.getNumericValue(chars[0]), Character.getNumericValue(chars[1]),
@@ -152,6 +156,10 @@ public class Cube {
     }
 
     public void displayNet() {
+
+        if (!this.debug)
+            return;
+
         int[][] white = this.getSide(0);
         int[][] yellow = this.getSide(5);
         int[][] blue = this.getSide(2);

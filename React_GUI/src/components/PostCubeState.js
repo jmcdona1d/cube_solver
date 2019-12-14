@@ -14,7 +14,9 @@ export default class PostCubeState extends React.Component {
     this.state = {
       item: this.emptyItem,
       groups: [],
-      solutionDisplayed: false
+      solutionDisplayed: false,
+      oneMade: false,
+      idToDelete: 0
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -47,14 +49,19 @@ export default class PostCubeState extends React.Component {
 
   async handleSubmit(event) {
     event.preventDefault();
-    const { item } = this.state;
+    const { item, oneMade, idToDelete } = this.state;
 
-    await fetch("/order", {
+    await fetch(`/order/${idToDelete}`, {
       method: "DELETE",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json"
       }
+    }).then(() => {
+      let updatedGroups = [...this.state.groups].filter(
+        i => i.id !== idToDelete
+      );
+      this.setState({ groups: updatedGroups });
     });
 
     await fetch("/order", {
@@ -66,7 +73,13 @@ export default class PostCubeState extends React.Component {
       body: JSON.stringify(item)
     });
     // this.props.history.push('/order');
-    this.setState({ solutionDisplayed: true });
+    const increment = this.state.idToDelete + 1;
+    this.setState({
+      solutionDisplayed: true,
+      oneMade: true,
+      idToDelete: increment
+    });
+    this.componentDidMount();
     //window.location.reload();
   }
 

@@ -1,5 +1,14 @@
 import React from "react";
-import { Button, Container, Form, FormGroup, Input, Label } from "reactstrap";
+import {
+  Button,
+  Container,
+  Form,
+  FormGroup,
+  Input,
+  Label,
+  Row,
+  Col
+} from "reactstrap";
 
 export default class PostCubeState extends React.Component {
   emptyItem = {
@@ -118,78 +127,98 @@ export default class PostCubeState extends React.Component {
           <Container>
             {title}
             <Form onSubmit={this.handleSubmit}>
-              <FormGroup>
-                <Label for="white">White Side</Label>
-                <Input
-                  type="text"
-                  name="white"
-                  id="white"
-                  value={this.state.white || ""}
-                  onChange={this.handleChange}
-                  autoComplete="white"
-                />
-              </FormGroup>
-              <FormGroup>
-                <Label for="red">Red Side</Label>
-                <Input
-                  type="text"
-                  name="red"
-                  id="red"
-                  value={this.state.red || ""}
-                  onChange={this.handleChange}
-                  autoComplete="red"
-                />
-              </FormGroup>
-              <FormGroup>
-                <Label for="blue">Blue Side</Label>
-                <Input
-                  type="text"
-                  name="blue"
-                  id="blue"
-                  value={this.state.blue || ""}
-                  onChange={this.handleChange}
-                  autoComplete="blue"
-                />
-              </FormGroup>
-              <FormGroup>
-                <Label for="green">Green Side</Label>
-                <Input
-                  type="text"
-                  name="green"
-                  id="green"
-                  value={this.state.green || ""}
-                  onChange={this.handleChange}
-                  autoComplete="green"
-                />
-              </FormGroup>
-              <FormGroup>
-                <Label for="orange">Orange Side</Label>
-                <Input
-                  type="text"
-                  name="orange"
-                  id="orange"
-                  value={this.state.orange || ""}
-                  onChange={this.handleChange}
-                  autoComplete="orange"
-                />
-              </FormGroup>
-              <FormGroup>
-                <Label for="yellow">Yellow Side</Label>
-                <Input
-                  type="text"
-                  name="yellow"
-                  id="yellow"
-                  value={this.state.yellow || ""}
-                  onChange={this.handleChange}
-                  autoComplete="yellow"
-                />
-              </FormGroup>
+              <Row>
+                <Col>
+                  <FormGroup>
+                    <Label for="white">White Side</Label>
+                    <Input
+                      type="text"
+                      name="white"
+                      id="white"
+                      value={this.state.white || ""}
+                      onChange={this.handleChange}
+                      autoComplete="white"
+                    />
+                  </FormGroup>
+                </Col>
+                <Col>
+                  <FormGroup>
+                    <Label for="red">Red Side</Label>
+                    <Input
+                      type="text"
+                      name="red"
+                      id="red"
+                      value={this.state.red || ""}
+                      onChange={this.handleChange}
+                      autoComplete="red"
+                    />
+                  </FormGroup>
+                </Col>
+                <Col>
+                  <FormGroup>
+                    <Label for="blue">Blue Side</Label>
+                    <Input
+                      type="text"
+                      name="blue"
+                      id="blue"
+                      value={this.state.blue || ""}
+                      onChange={this.handleChange}
+                      autoComplete="blue"
+                    />
+                  </FormGroup>
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                  <FormGroup>
+                    <Label for="green">Green Side</Label>
+                    <Input
+                      type="text"
+                      name="green"
+                      id="green"
+                      value={this.state.green || ""}
+                      onChange={this.handleChange}
+                      autoComplete="green"
+                    />
+                  </FormGroup>
+                </Col>
+                <Col>
+                  <FormGroup>
+                    <Label for="orange">Orange Side</Label>
+                    <Input
+                      type="text"
+                      name="orange"
+                      id="orange"
+                      value={this.state.orange || ""}
+                      onChange={this.handleChange}
+                      autoComplete="orange"
+                    />
+                  </FormGroup>
+                </Col>
+                <Col>
+                  <FormGroup>
+                    <Label for="yellow">Yellow Side</Label>
+                    <Input
+                      type="text"
+                      name="yellow"
+                      id="yellow"
+                      value={this.state.yellow || ""}
+                      onChange={this.handleChange}
+                      autoComplete="yellow"
+                    />
+                  </FormGroup>
+                </Col>
+              </Row>
               {/* might need to make complet -> boolean or remove it since it is assigned */}
-              <FormGroup>
-                <Button color="primary" type="submit">
-                  Create
-                </Button>{" "}
-              </FormGroup>
+              <Row>
+                <Col>
+                  <FormGroup>
+                    <Button color="primary" type="submit">
+                      Create
+                    </Button>{" "}
+                  </FormGroup>
+                </Col>
+              </Row>
             </Form>
           </Container>
         </div>

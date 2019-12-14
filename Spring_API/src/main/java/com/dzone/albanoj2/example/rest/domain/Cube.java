@@ -1839,7 +1839,25 @@ public class Cube {
 
     private void addTurn(int center, boolean direction) {
 
-        solveInstructions[this.state] += (char) (center + '0');
+        switch (center) {
+        case 0:
+            solveInstructions[this.state] += 'W';
+            break;
+        case 1:
+            solveInstructions[this.state] += 'R';
+            break;
+        case 2:
+            solveInstructions[this.state] += 'B';
+            break;
+        case 3:
+            solveInstructions[this.state] += 'G';
+            break;
+        case 4:
+            solveInstructions[this.state] += 'O';
+            break;
+        case 5:
+            solveInstructions[this.state] += 'Y';
+        }
         solveInstructions[this.state] += direction ? "  " : "` ";
     }
 

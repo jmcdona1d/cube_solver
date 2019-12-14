@@ -80,7 +80,7 @@ export default class PostCubeState extends React.Component {
 
   render() {
     const { item, groups } = this.state;
-    const title = <h2>Create cube</h2>;
+    const title = <h1>Enter Cube Details</h1>;
 
     if (!this.state.solutionDisplayed) {
       return (
@@ -145,22 +145,32 @@ export default class PostCubeState extends React.Component {
     } else {
       return (
         <div>
-          <h2>Solving Instructions:</h2>
+          <h1>Solving Instructions:</h1>
           {groups.map(group => (
             <div>
-              <h3>White Cross:</h3>
+              <h3>
+                <u>White Cross:</u>
+              </h3>
               <div key={group.id}>{group.whiteCross}</div>
 
-              <h3>First Two Layers:</h3>
+              <h3>
+                <u>First Two Layers:</u>
+              </h3>
               <div key={group.id}>{group.f2L}</div>
 
-              <h3>Orient Last Layer:</h3>
+              <h3>
+                <u>Orient Last Layer:</u>
+              </h3>
               <div key={group.id}>{group.oll}</div>
 
-              <h3>Permute Last Layer:</h3>
+              <h3>
+                <u>Permute Last Layer:</u>
+              </h3>
               <div key={group.id}>{group.pll}</div>
 
-              <h3>Align Final Layer:</h3>
+              <h3>
+                <u>Align Last Layer:</u>
+              </h3>
               <div key={group.id}>{group.finish}</div>
             </div>
           ))}

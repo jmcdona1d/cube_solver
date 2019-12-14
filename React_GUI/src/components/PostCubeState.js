@@ -29,15 +29,6 @@ export default class PostCubeState extends React.Component {
     this.setState({ groups: body, isLoading: false });
   }
 
-  //   async componentDidMount() {
-  //     if (this.props.match.params.id !== "new") {
-  //       const cube = await (
-  //         await fetch(`/order/${this.props.match.params.id}`)
-  //       ).json();
-  //       this.setState({ item: cube });
-  //     }
-  //   }
-
   handleChange(event) {
     const target = event.target;
     const value = target.value;
@@ -157,10 +148,19 @@ export default class PostCubeState extends React.Component {
           <h2>Solving Instructions:</h2>
           {groups.map(group => (
             <div>
+              <h3>White Cross:</h3>
               <div key={group.id}>{group.whiteCross}</div>
+
+              <h3>First Two Layers:</h3>
               <div key={group.id}>{group.f2L}</div>
+
+              <h3>Orient Last Layer:</h3>
               <div key={group.id}>{group.oll}</div>
+
+              <h3>Permute Last Layer:</h3>
               <div key={group.id}>{group.pll}</div>
+
+              <h3>Align Final Layer:</h3>
               <div key={group.id}>{group.finish}</div>
             </div>
           ))}

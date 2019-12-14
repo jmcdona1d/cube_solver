@@ -3,7 +3,7 @@ import { Button, Container, Form, FormGroup, Input, Label } from "reactstrap";
 
 export default class PostCubeState extends React.Component {
   emptyItem = {
-    description: "",
+    description: "desc",
     costInCents: "",
     complete: "",
     input: ""
@@ -16,11 +16,18 @@ export default class PostCubeState extends React.Component {
       groups: [],
       solutionDisplayed: false,
       oneMade: false,
-      idToDelete: 0
+      idToDelete: 0,
+      white: "",
+      red: "",
+      blue: "",
+      green: "",
+      orange: "",
+      yellow: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.resetDisplay = this.resetDisplay.bind(this);
+    this.updateInputString = this.updateInputString.bind(this);
   }
 
   async componentDidMount() {
@@ -33,9 +40,15 @@ export default class PostCubeState extends React.Component {
     const target = event.target;
     const value = target.value;
     const name = target.name;
-    let item = { ...this.state.item };
-    item[name] = value;
-    this.setState({ item });
+
+    this.setState(
+      {
+        [name]: value
+      },
+      function() {
+        this.updateInputString();
+      }
+    );
   }
 
   async handleSubmit(event) {
@@ -63,7 +76,7 @@ export default class PostCubeState extends React.Component {
       },
       body: JSON.stringify(item)
     });
-    // this.props.history.push('/order');
+
     const increment = this.state.idToDelete + 1;
     this.setState({
       solutionDisplayed: true,
@@ -71,11 +84,28 @@ export default class PostCubeState extends React.Component {
       idToDelete: increment
     });
     this.componentDidMount();
-    //window.location.reload();
   }
 
   resetDisplay() {
     this.setState({ solutionDisplayed: false });
+  }
+
+  updateInputString() {
+    var inputString =
+      this.state.white +
+      " " +
+      this.state.red +
+      " " +
+      this.state.blue +
+      " " +
+      this.state.green +
+      " " +
+      this.state.orange +
+      " " +
+      this.state.yellow;
+    var newItem = this.state.item;
+    newItem.input = inputString;
+    this.setState({ item: newItem });
   }
 
   render() {
@@ -89,47 +119,69 @@ export default class PostCubeState extends React.Component {
             {title}
             <Form onSubmit={this.handleSubmit}>
               <FormGroup>
-                <Label for="description">Description</Label>
+                <Label for="white">White Side</Label>
                 <Input
                   type="text"
-                  name="description"
-                  id="description"
-                  value={item.description || ""}
+                  name="white"
+                  id="white"
+                  value={this.state.white || ""}
                   onChange={this.handleChange}
-                  autoComplete="description"
+                  autoComplete="white"
                 />
               </FormGroup>
               <FormGroup>
-                <Label for="costInCents">Cost in Cents</Label>
+                <Label for="red">Red Side</Label>
                 <Input
-                  type="number"
-                  name="costInCents"
-                  id="costInCents"
-                  value={item.costInCents || ""}
+                  type="text"
+                  name="red"
+                  id="red"
+                  value={this.state.red || ""}
                   onChange={this.handleChange}
-                  autoComplete="costInCents"
+                  autoComplete="red"
                 />
               </FormGroup>
               <FormGroup>
-                <Label for="complete">Complete</Label>
+                <Label for="blue">Blue Side</Label>
                 <Input
                   type="text"
-                  name="complete"
-                  id="complete"
-                  value={item.complete || ""}
+                  name="blue"
+                  id="blue"
+                  value={this.state.blue || ""}
                   onChange={this.handleChange}
-                  autoComplete="complete"
+                  autoComplete="blue"
                 />
               </FormGroup>
               <FormGroup>
-                <Label for="input">Input state</Label>
+                <Label for="green">Green Side</Label>
                 <Input
                   type="text"
-                  name="input"
-                  id="input"
-                  value={item.input || ""}
+                  name="green"
+                  id="green"
+                  value={this.state.green || ""}
                   onChange={this.handleChange}
-                  autoComplete="input"
+                  autoComplete="green"
+                />
+              </FormGroup>
+              <FormGroup>
+                <Label for="orange">Orange Side</Label>
+                <Input
+                  type="text"
+                  name="orange"
+                  id="orange"
+                  value={this.state.orange || ""}
+                  onChange={this.handleChange}
+                  autoComplete="orange"
+                />
+              </FormGroup>
+              <FormGroup>
+                <Label for="yellow">Yellow Side</Label>
+                <Input
+                  type="text"
+                  name="yellow"
+                  id="yellow"
+                  value={this.state.yellow || ""}
+                  onChange={this.handleChange}
+                  autoComplete="yellow"
                 />
               </FormGroup>
               {/* might need to make complet -> boolean or remove it since it is assigned */}

@@ -61,7 +61,8 @@ public class Order implements Identifiable {
 	}
 
 	public void setInput(String input) {
-		String set = (input == null || input.length() < 52) ? "52122200 01445432 34213553 20445145 01413130 30102355"
+		String set = (input == null || input.length() < 52 || input.length() >= 53)
+				? "52122200 01445432 34213553 20445145 01413130 30102355"
 				: input;
 		this.input = set;
 		Cube c = new Cube(this.input);

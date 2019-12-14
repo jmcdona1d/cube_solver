@@ -7,7 +7,11 @@ import {
   Input,
   Label,
   Row,
-  Col
+  Col,
+  Modal,
+  ModalBody,
+  ModalFooter,
+  ModalHeader
 } from "reactstrap";
 
 export default class PostCubeState extends React.Component {
@@ -31,12 +35,15 @@ export default class PostCubeState extends React.Component {
       blue: "",
       green: "",
       orange: "",
-      yellow: ""
+      yellow: "",
+      showModal: false
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.resetDisplay = this.resetDisplay.bind(this);
     this.updateInputString = this.updateInputString.bind(this);
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
   async componentDidMount() {
@@ -117,9 +124,17 @@ export default class PostCubeState extends React.Component {
     this.setState({ item: newItem });
   }
 
+  openModal() {
+    this.setState({ showModal: true });
+  }
+
+  closeModal() {
+    this.setState({ showModal: false });
+  }
+
   render() {
     const { item, groups } = this.state;
-    const title = <h1>Enter Cube Details</h1>;
+    const title = <h1>Enter Cube Details:</h1>;
 
     if (!this.state.solutionDisplayed) {
       return (
@@ -216,10 +231,26 @@ export default class PostCubeState extends React.Component {
                     <Button color="primary" type="submit">
                       Create
                     </Button>{" "}
+                    <Button color="secondary" onClick={this.openModal}>
+                      View Instructions
+                    </Button>{" "}
                   </FormGroup>
                 </Col>
               </Row>
             </Form>
+            <Modal isOpen={this.state.showModal} centered>
+              <ModalHeader toggle={this.closeModal}>Instructions</ModalHeader>
+              <ModalBody>
+                Based on the diagram, enter the colour of each square for each
+                side. Afterwards, press <i>Create</i> to see the steps needed to
+                solve the cube.
+              </ModalBody>
+              <ModalFooter>
+                <Button variant="secondary" onClick={this.closeModal}>
+                  Close
+                </Button>
+              </ModalFooter>
+            </Modal>
           </Container>
         </div>
       );

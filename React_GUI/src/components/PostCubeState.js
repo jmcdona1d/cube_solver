@@ -13,6 +13,7 @@ import {
   ModalFooter,
   ModalHeader
 } from "reactstrap";
+import netDiagram from "../cubeAssets/Numbered_Net_Good.png";
 
 export default class PostCubeState extends React.Component {
   emptyItem = {
@@ -238,12 +239,16 @@ export default class PostCubeState extends React.Component {
                 </Col>
               </Row>
             </Form>
-            <Modal isOpen={this.state.showModal} centered>
+            <Modal isOpen={this.state.showModal} centered size="lg">
               <ModalHeader toggle={this.closeModal}>Instructions</ModalHeader>
               <ModalBody>
-                Based on the diagram, enter the colour of each square for each
-                side. Afterwards, press <i>Create</i> to see the steps needed to
-                solve the cube.
+                <Container>
+                  For each side, enter the colour letter (w,r,b,g,o,y) in order
+                  (1 - 8) for each square. Afterwards, press <i>Create</i> to
+                  see the steps needed to solve the cube. View the bellow
+                  diagram to see order of squares.
+                  <img src={netDiagram} />
+                </Container>
               </ModalBody>
               <ModalFooter>
                 <Button variant="secondary" onClick={this.closeModal}>

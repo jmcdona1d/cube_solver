@@ -63,6 +63,8 @@ public class Cube {
 
         char[] chars = cubeString.toCharArray();
 
+        chars = convertToNumeric(chars);
+
         sides = new ArrayList<int[][]>();
         turnCount = 0;
         solveInstructions = new String[] { "", "", "", "", "" };
@@ -1889,6 +1891,41 @@ public class Cube {
 
     public String[] getSolveInstructionsArray() {
         return this.solveInstructions;
+    }
+
+    private char[] convertToNumeric(char[] string) {
+        for (int i = 0; i < string.length; i++) {
+            switch (string[i]) {
+            case 'w':
+            case 'W':
+                string[i] = '0';
+                break;
+            case 'r':
+            case 'R':
+                string[i] = '1';
+                break;
+            case 'b':
+            case 'B':
+                string[i] = '2';
+                break;
+            case 'g':
+            case 'G':
+                string[i] = '3';
+                break;
+            case 'o':
+            case 'O':
+                string[i] = '4';
+                break;
+            case 'y':
+            case 'Y':
+                string[i] = '5';
+                break;
+            default:
+                break;
+            }
+
+        }
+        return string;
     }
 
     // public static void main(String args[]) {

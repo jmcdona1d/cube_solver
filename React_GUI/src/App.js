@@ -83,7 +83,6 @@
 // }
 // ReactDOM.render(<NetLayout />, document.getElementById("root"));
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import PostCubeState from "./components/PostCubeState";
 
@@ -100,7 +99,7 @@ class App extends Component {
   }
 
   render() {
-    const { groups, isLoading } = this.state;
+    const { isLoading } = this.state;
 
     if (isLoading) {
       return <p>Loading...</p>;

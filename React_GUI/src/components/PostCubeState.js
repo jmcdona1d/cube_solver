@@ -29,7 +29,6 @@ export default class PostCubeState extends React.Component {
       item: this.emptyItem,
       groups: [],
       solutionDisplayed: false,
-      oneMade: false,
       idToDelete: 0,
       white: "",
       red: "",
@@ -70,7 +69,7 @@ export default class PostCubeState extends React.Component {
 
   async handleSubmit(event) {
     event.preventDefault();
-    const { item, oneMade, idToDelete } = this.state;
+    const { item, idToDelete } = this.state;
 
     await fetch(`/order/${idToDelete}`, {
       method: "DELETE",
@@ -97,7 +96,6 @@ export default class PostCubeState extends React.Component {
     const increment = this.state.idToDelete + 1;
     this.setState({
       solutionDisplayed: true,
-      oneMade: true,
       idToDelete: increment
     });
     this.componentDidMount();
@@ -134,7 +132,7 @@ export default class PostCubeState extends React.Component {
   }
 
   render() {
-    const { item, groups } = this.state;
+    const { groups } = this.state;
     const title = <h1>Enter Cube Details:</h1>;
 
     if (!this.state.solutionDisplayed) {
@@ -258,7 +256,7 @@ export default class PostCubeState extends React.Component {
                   </uL>
                   <p>
                     View the bellow diagram to see order of squares.
-                    <img src={netDiagram} />
+                    <img src={netDiagram} alt="Diagram of Cube Net" />
                   </p>
                 </Container>
               </ModalBody>

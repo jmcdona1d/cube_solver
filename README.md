@@ -1,5 +1,14 @@
 # cube_solver
 
+## Web Application
+For a more intuitive experince run you can run the web application to get solving instrucitons from a cube. To run the web app locally, fork/clone this respository and ensure that you have a recent version of *Maven* and *Node Package Manager* installed.
+
+Open a terminal and navigate to the directory `/Spring_API` and run the command `mvn clean install` to ensure dependencies are installed and then run `mvn spring-boot:run` to launch the backend API. After this is running, open a new terminal and navigate to the directory `/React_GUI` and run the command `npm install` and then run `npm start` to create the frontend web site. If it doen't automatically open, the web app can be found at the default port `localhost:3000`.
+
+## Java Program
+
+Follow these steps to just run the program in *Java* by navigating to the directory `/Java`
+
 This is an application that can solve a rubik's cube for you using command line inputs.
 To use the application, modify the `main` method's `cube.setSide()` lines to copy the state from your actual Rubik's Cube to a Java object one.
 The first int inputted to `setSide()` represents the face colour (the colour of the middle square on the face).

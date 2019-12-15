@@ -319,10 +319,55 @@ export default class PostCubeState extends React.Component {
               </Col>
               <Col>
                 <Button color="secondary" onClick={this.openModal}>
-                  Return
+                  Help
                 </Button>
               </Col>
             </Row>
+            <Modal isOpen={this.state.showModal} centered size="lg">
+              <ModalHeader toggle={this.closeModal}>Help</ModalHeader>
+              <ModalBody>
+                <Container>
+                  <p>
+                    Sequentially follow the instructions from top to bottom.
+                    Each character says which face you should turn - if there is
+                    a space after it then turn the face clockwise and if there
+                    is a <i>`</i> after it then turn the face counter-clockwise{" "}
+                  </p>
+                  <ul>
+                    <li>
+                      After doing the <i>White Cross</i> instructions there
+                      should be a cross fromed with the edges on the white face
+                    </li>
+                    <li>
+                      After doing the <i>First Two Layers</i> instructions the
+                      first two layers - white and the middle layer should be
+                      solved
+                    </li>
+                    <li>
+                      After doing the <i>Orient Last Layer</i> instructions the
+                      yellow layer should have all the correct squares facing up
+                    </li>
+                    <li>
+                      After doing the <i>Permute Last Layer</i> instructions the
+                      yellow layer should have all the corners placed correctly
+                    </li>
+                    <li>
+                      After doing the <i>Align Last Layer</i> instructions the
+                      cube should be solved!
+                    </li>
+                  </ul>
+                  <i>
+                    If a set is blank then it should not need any actions to
+                    complete and can be skipped
+                  </i>
+                </Container>
+              </ModalBody>
+              <ModalFooter>
+                <Button variant="secondary" onClick={this.closeModal}>
+                  Close
+                </Button>
+              </ModalFooter>
+            </Modal>
           </Container>
         </div>
       );

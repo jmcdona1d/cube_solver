@@ -263,37 +263,67 @@ export default class PostCubeState extends React.Component {
       return (
         <div>
           <h1>Solving Instructions:</h1>
-          {groups.map(group => (
-            <div>
-              <h3>
-                <u>White Cross:</u>
-              </h3>
-              <div key={group.id}>{group.whiteCross}</div>
 
-              <h3>
-                <u>First Two Layers:</u>
-              </h3>
-              <div key={group.id}>{group.f2L}</div>
+          <Container>
+            {groups.map(group => (
+              <div>
+                <Row>
+                  <h3>
+                    <u>White Cross:</u>
+                  </h3>
+                </Row>
 
-              <h3>
-                <u>Orient Last Layer:</u>
-              </h3>
-              <div key={group.id}>{group.oll}</div>
+                <Row>
+                  <div key={group.id}>{group.whiteCross}</div>
+                </Row>
 
-              <h3>
-                <u>Permute Last Layer:</u>
-              </h3>
-              <div key={group.id}>{group.pll}</div>
-
-              <h3>
-                <u>Align Last Layer:</u>
-              </h3>
-              <div key={group.id}>{group.finish}</div>
-            </div>
-          ))}
-          <Button color="primary" onClick={this.resetDisplay}>
-            Return
-          </Button>
+                <Row>
+                  <h3>
+                    <u>First Two Layers:</u>
+                  </h3>
+                </Row>
+                <Row>
+                  <div key={group.id}>{group.f2L}</div>
+                </Row>
+                <Row>
+                  <h3>
+                    <u>Orient Last Layer:</u>
+                  </h3>
+                </Row>
+                <Row>
+                  <div key={group.id}>{group.oll}</div>
+                </Row>
+                <Row>
+                  <h3>
+                    <u>Permute Last Layer:</u>
+                  </h3>
+                </Row>
+                <Row>
+                  <div key={group.id}>{group.pll}</div>
+                </Row>
+                <Row>
+                  <h3>
+                    <u>Align Last Layer:</u>
+                  </h3>
+                </Row>
+                <Row>
+                  <div key={group.id}>{group.finish}</div>
+                </Row>
+              </div>
+            ))}
+            <Row>
+              <Col>
+                <Button color="primary" onClick={this.resetDisplay}>
+                  Return
+                </Button>
+              </Col>
+              <Col>
+                <Button color="secondary" onClick={this.openModal}>
+                  Return
+                </Button>
+              </Col>
+            </Row>
+          </Container>
         </div>
       );
     }

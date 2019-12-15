@@ -243,11 +243,23 @@ export default class PostCubeState extends React.Component {
               <ModalHeader toggle={this.closeModal}>Instructions</ModalHeader>
               <ModalBody>
                 <Container>
-                  For each side, enter the colour letter (w,r,b,g,o,y) in order
-                  (1 - 8) for each square. Afterwards, press <i>Create</i> to
-                  see the steps needed to solve the cube. View the bellow
-                  diagram to see order of squares.
-                  <img src={netDiagram} />
+                  <p>
+                    For each face, enter the colour letter or number in order (1
+                    - 8) for each square. Afterwards, press <i>Create</i> to see
+                    the steps needed to solve the cube.{" "}
+                  </p>
+                  <uL>
+                    <li> w or 0 represent white</li>
+                    <li> r or 1 represent red</li>
+                    <li> b or 2 represent blue</li>
+                    <li> g or 3 represent green</li>
+                    <li> o or 4 represent orange</li>
+                    <li> y or 5 represent yellow</li>
+                  </uL>
+                  <p>
+                    View the bellow diagram to see order of squares.
+                    <img src={netDiagram} />
+                  </p>
                 </Container>
               </ModalBody>
               <ModalFooter>

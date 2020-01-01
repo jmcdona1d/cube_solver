@@ -152,6 +152,9 @@ export default class PostCubeState extends React.Component {
                       value={this.state.white || ""}
                       onChange={this.handleChange}
                       autoComplete="white"
+                      maxLength="8"
+                      minLength="8"
+                      required="true"
                     />
                   </FormGroup>
                 </Col>
@@ -165,6 +168,9 @@ export default class PostCubeState extends React.Component {
                       value={this.state.red || ""}
                       onChange={this.handleChange}
                       autoComplete="red"
+                      maxLength="8"
+                      minLength="8"
+                      required="true"
                     />
                   </FormGroup>
                 </Col>
@@ -178,6 +184,9 @@ export default class PostCubeState extends React.Component {
                       value={this.state.blue || ""}
                       onChange={this.handleChange}
                       autoComplete="blue"
+                      maxLength="8"
+                      minLength="8"
+                      required="true"
                     />
                   </FormGroup>
                 </Col>
@@ -193,6 +202,9 @@ export default class PostCubeState extends React.Component {
                       value={this.state.green || ""}
                       onChange={this.handleChange}
                       autoComplete="green"
+                      maxLength="8"
+                      minLength="8"
+                      required="true"
                     />
                   </FormGroup>
                 </Col>
@@ -206,6 +218,9 @@ export default class PostCubeState extends React.Component {
                       value={this.state.orange || ""}
                       onChange={this.handleChange}
                       autoComplete="orange"
+                      maxLength="8"
+                      minLength="8"
+                      required="true"
                     />
                   </FormGroup>
                 </Col>
@@ -219,11 +234,14 @@ export default class PostCubeState extends React.Component {
                       value={this.state.yellow || ""}
                       onChange={this.handleChange}
                       autoComplete="yellow"
+                      maxLength="8"
+                      minLength="8"
+                      required="true"
                     />
                   </FormGroup>
                 </Col>
               </Row>
-              {/* might need to make complet -> boolean or remove it since it is assigned */}
+              {/* might need to make complete -> boolean or remove it since it is assigned */}
               <Row>
                 <Col>
                   <FormGroup>

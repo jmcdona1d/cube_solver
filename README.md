@@ -5,6 +5,12 @@ For a more intuitive experince run you can run the web application to get solvin
 
 Open a terminal and navigate to the directory `/Spring_API` and run the command `mvn clean install` to ensure dependencies are installed and then run `mvn spring-boot:run` to launch the backend API. After this is running, open a new terminal and navigate to the directory `/React_GUI` and run the command `npm install` and then run `npm start` to create the frontend web site. If it doen't automatically open, the web app can be found at the default port `localhost:3000`.
 
+While the main solving algorithm is still being debugged until it works >%95 of the time - please try and demo the project by typing the following values: 
+
+`white = 52122200  red = 01445432 blue = 34213553  green = 20445145 orange = 01413130 yellow = 30102355.`
+
+This will create a cube that the program WILL be able to solve (it does not just statically return a result).
+
 ## Java Program
 
 Follow these steps to just run the program in *Java* by navigating to the directory `/Java`

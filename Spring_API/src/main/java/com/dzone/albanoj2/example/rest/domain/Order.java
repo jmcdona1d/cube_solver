@@ -6,6 +6,7 @@ public class Order implements Identifiable {
 	private String description;
 	private long costInCents;
 	private boolean isComplete;
+	private boolean solved;
 	private String input;
 	private String[] result;
 	private String whiteCross;
@@ -62,11 +63,14 @@ public class Order implements Identifiable {
 
 	public void setInput(String input) {
 		String set = (input == null || input.length() <= 52 || input.length() > 53)
-				? "52122200 01445432 34213553 20445145 01413130 30102355"
+				? "52122200 01445432 34213553 20445145 01413130 30102355" // wont reach this since inputs are validated
+																			// now
 				: input;
 		this.input = set;
 		Cube c = new Cube(this.input);
-		int j = c.solveCube();
+		int turns = c.solveCube();
+		this.setSolved(turns != 500);
+
 		String[] instructions = c.getSolveInstructionsArray();
 		setResult(instructions);
 		setWhiteCross(instructions[0]);
@@ -122,5 +126,13 @@ public class Order implements Identifiable {
 
 	public String getFinish() {
 		return this.finish;
+	}
+
+	public boolean isSolved() {
+		return this.solved;
+	}
+
+	public void setSolved(boolean solved) {
+		this.solved = solved;
 	}
 }

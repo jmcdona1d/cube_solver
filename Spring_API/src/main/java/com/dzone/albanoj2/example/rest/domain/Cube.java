@@ -419,34 +419,36 @@ public class Cube {
 
     public int solveCube() {// reorder/rename solve method names as more are added
 
-        turnCount = 0;
+        this.turnCount = 0;
 
-        while (WhiteCross() != true)
-            ;
+        while (this.turnCount < 500) {
+            while (WhiteCross() != true)
+                ;
 
-        // this.displayNet();
-        this.state++;
+            // this.displayNet();
+            this.state++;
 
-        while (F2L() != true)
-            ;
+            while (F2L() != true)
+                ;
 
-        // this.displayNet();
-        this.state++;
+            // this.displayNet();
+            this.state++;
 
-        while (OLL() != true)
-            ;
-        // this.displayNet();
-        this.state++;
+            while (OLL() != true)
+                ;
+            // this.displayNet();
+            this.state++;
 
-        while (PLL() != true)
-            ;
-        this.state++;
+            while (PLL() != true)
+                ;
+            this.state++;
 
-        while (finish() != true)
-            ;
-        this.state++;
-
-        return turnCount;
+            while (finish() != true)
+                ;
+            this.state++;
+            break;
+        }
+        return this.turnCount;
 
     }
 

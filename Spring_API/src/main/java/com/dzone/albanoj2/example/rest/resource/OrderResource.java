@@ -12,6 +12,7 @@ public class OrderResource extends ResourceSupport {
 	private final long costInCents;
 	private final String[] result;
 	private final boolean isComplete;
+	private final boolean solved;
 	private final String input;
 	private final String whiteCross;
 	private final String F2L;
@@ -31,6 +32,7 @@ public class OrderResource extends ResourceSupport {
 		PLL = order.getPLL();
 		OLL = order.getOLL();
 		finish = order.getFinish();
+		solved = order.isSolved();
 	}
 
 	@JsonProperty("id")
@@ -76,5 +78,9 @@ public class OrderResource extends ResourceSupport {
 
 	public String getFinish() {
 		return finish;
+	}
+
+	public boolean isSolved() {
+		return solved;
 	}
 }

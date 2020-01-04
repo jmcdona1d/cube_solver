@@ -424,7 +424,6 @@ public class Cube {
         while (this.turnCount < 500) {
             while (WhiteCross() != true)
                 ;
-
             // this.displayNet();
             this.state++;
 
@@ -449,7 +448,6 @@ public class Cube {
             break;
         }
         return this.turnCount;
-
     }
 
     private boolean finish() {

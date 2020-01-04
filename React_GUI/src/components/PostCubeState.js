@@ -36,7 +36,8 @@ export default class PostCubeState extends React.Component {
       green: "",
       orange: "",
       yellow: "",
-      showModal: false
+      showModal: false,
+      deadRun: false
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -44,6 +45,7 @@ export default class PostCubeState extends React.Component {
     this.updateInputString = this.updateInputString.bind(this);
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.solveWorked = this.solveWorked.bind(this);
   }
 
   async componentDidMount() {
@@ -99,6 +101,7 @@ export default class PostCubeState extends React.Component {
       idToDelete: increment
     });
     this.componentDidMount();
+    this.solveWorked();
   }
 
   resetDisplay() {
@@ -129,6 +132,10 @@ export default class PostCubeState extends React.Component {
 
   closeModal() {
     this.setState({ showModal: false });
+  }
+
+  solveWorked() {
+    this.state.groups.map(group => this.setState({ deadRun: group.solved }));
   }
 
   render() {
@@ -287,7 +294,7 @@ export default class PostCubeState extends React.Component {
           </Container>
         </div>
       );
-    } else {
+    } else if (!this.state.deadRun) {
       return (
         <div>
           <h1>Solving Instructions:</h1>
@@ -397,6 +404,16 @@ export default class PostCubeState extends React.Component {
               </ModalFooter>
             </Modal>
           </Container>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <h1>The inputted cube state could not be solved.</h1>
+          <h2>Please click bellow to re-enter/fix the cube input</h2>
+          <Button color="primary" onClick={this.resetDisplay}>
+            Return
+          </Button>
         </div>
       );
     }

@@ -421,32 +421,40 @@ public class Cube {
 
         this.turnCount = 0;
 
-        while (this.turnCount < 500) {
-            while (WhiteCross() != true)
-                ;
-            // this.displayNet();
-            this.state++;
+        while (WhiteCross() != true)
+            if (turnCount > 500)
+                return turnCount;
+        ;
+        // this.displayNet();
+        this.state++;
 
-            while (F2L() != true)
-                ;
+        while (F2L() != true)
+            if (turnCount > 500)
+                return turnCount;
+        ;
 
-            // this.displayNet();
-            this.state++;
+        // this.displayNet();
+        this.state++;
 
-            while (OLL() != true)
-                ;
-            // this.displayNet();
-            this.state++;
+        while (OLL() != true)
+            if (turnCount > 500)
+                return turnCount;
+        ;
+        // this.displayNet();
+        this.state++;
 
-            while (PLL() != true)
-                ;
-            this.state++;
+        while (PLL() != true)
+            if (turnCount > 500)
+                return turnCount;
+        ;
+        this.state++;
 
-            while (finish() != true)
-                ;
-            this.state++;
-            break;
-        }
+        while (finish() != true)
+            if (turnCount > 500)
+                return turnCount;
+        ;
+        this.state++;
+
         return this.turnCount;
     }
 

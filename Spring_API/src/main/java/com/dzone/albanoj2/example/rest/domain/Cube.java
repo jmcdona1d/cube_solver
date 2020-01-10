@@ -612,6 +612,7 @@ public class Cube {
             case 4:
                 this.faceTurn(5);
             }
+            System.out.println(this.turnCount);
             return false;
         }
 

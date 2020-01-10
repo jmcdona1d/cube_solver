@@ -219,9 +219,17 @@ public class OrderControllerTest extends ControllerIntegrationTest {
 	}
 
 	@Test
-	public void testCubeSolveReturnWorks() throws Exception {
+	public void testCubeSolveReturnWorksForGoodCase() throws Exception {
 		Order cube = new Order();
-		cube.setInput("521222000144543234213553204451450141313030102355");
+		// String creates test cube we know should solve properly
+		cube.setInput("52122200 01445432 34213553 20445145 01413130 30102355");
 		Assert.assertTrue(cube.isSolved());
+	}
+
+	@Test
+	public void testCubeSolveReturnWorksForBadCase() throws Exception {
+		Order cube = new Order();
+		cube.setInput("52122200 01445432 34213553 20445145 01413130 30102366");
+		Assert.assertFalse(cube.isSolved());
 	}
 }

@@ -69,7 +69,10 @@ public class Order implements Identifiable {
 		this.input = set;
 		Cube c = new Cube(this.input);
 		int turns = c.solveCube();
-		this.setSolved(turns < 500);
+		System.out.println(turns);
+		c.displayNet();
+
+		this.setSolved(turns < 499);
 		System.out.println(turns);
 
 		String[] instructions = c.getSolveInstructionsArray();

@@ -134,7 +134,6 @@ public class Order implements Identifiable {
 	}
 
 	public void setSolved(boolean solved) {
-		System.out.println(solved);
 		this.solved = solved;
 	}
 }

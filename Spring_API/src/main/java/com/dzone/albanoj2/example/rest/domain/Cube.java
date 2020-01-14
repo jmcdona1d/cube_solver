@@ -419,6 +419,9 @@ public class Cube {
 
     public int solveCube() {// reorder/rename solve method names as more are added
 
+        if (!this.validateCube())
+            return 501;// trigger react to show error message
+
         this.turnCount = 0;
 
         while (WhiteCross() != true)
@@ -1935,6 +1938,37 @@ public class Cube {
 
         }
         return string;
+    }
+
+    private boolean validateCube() {
+
+        // (8 corners and 12 edges)
+        // algorithm should check that each of them exist
+
+        // So if one is flipped - then the error will be caught when it tries to solve
+
+        // have a boolean array (length 20) with all set to false
+        // we will hard coded-ly load each piece and pass then call a helper method that
+        // checks the pieve and sets the appropriate array index to true
+        // -if not a real piece then it should return false and make this method return
+        // false
+        // - if an index it tries to set is already true - also act like above scenario
+        // since its impossible
+
+        boolean[] checks = new boolean[20];
+
+        return true;
+    }
+
+    private boolean cubeValidationHelper(boolean[] checks, boolean isCorner) {
+
+        if (isCorner) {
+            // switch case for corners
+        } else {
+            // switch case for edges
+        }
+
+        return true;
     }
 
     // public static void main(String args[]) {

@@ -1955,7 +1955,7 @@ public class Cube {
         // - if an index it tries to set is already true - also act like above scenario
         // since its impossible
 
-        boolean[] checks = new boolean[20];
+        boolean[] checks = new boolean[21]; // array position 0 will be set to true if error is found
 
         return true;
     }
@@ -1963,10 +1963,55 @@ public class Cube {
     // lets check all edges first and have them first in the array.
     private boolean[] cubeValidationEdge(boolean[] checks, int one, int two) {
 
+        if (one == 4 && two == 3 || one == 3 && two == 4)// green and orange corner
+            setAndCheck(checks, 1);
+
+        else if (one == 3 && two == 1 || one == 1 && two == 3)// red and green corner
+            setAndCheck(checks, 2);
+
+        else if (one == 2 && two == 1 || one == 1 && two == 2)// blue red
+            setAndCheck(checks, 3);
+
+        else if (one == 2 && two == 4 || one == 4 && two == 2)// orange blue
+            setAndCheck(checks, 4);
+
+        else if (one == 0 && two == 4 || one == 4 && two == 0)// orange white
+            setAndCheck(checks, 5);
+
+        else if (one == 1 && two == 0 || one == 0 && two == 1)// white red
+            setAndCheck(checks, 6);
+
+        else if (one == 1 && two == 5 || one == 5 && two == 1)// red yellow
+            setAndCheck(checks, 7);
+
+        else if (one == 5 && two == 4 || one == 4 && two == 5)// yellow orange
+            setAndCheck(checks, 8);
+
+        else if (one == 3 && two == 0 || one == 0 && two == 3)// green white
+            setAndCheck(checks, 9);
+
+        else if (one == 2 && two == 0 || one == 0 && two == 2)// white blue
+            setAndCheck(checks, 10);
+
+        else if (one == 2 && two == 5 || one == 5 && two == 2)// blue yellow
+            setAndCheck(checks, 11);
+
+        else if (one == 3 && two == 5 || one == 5 && two == 3)// yellow green
+            setAndCheck(checks, 12);
+
         return checks;
     }
 
     private boolean[] cubeValidationCorener(boolean[] checks, int one, int two, int three) {
+
+        return checks;
+    }
+
+    private boolean[] setAndCheck(boolean[] checks, int i) {
+        if (checks[i])
+            checks[0] = false;
+        else
+            checks[i] = true;
 
         return checks;
     }

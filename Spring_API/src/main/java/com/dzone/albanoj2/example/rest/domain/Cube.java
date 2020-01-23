@@ -1960,15 +1960,15 @@ public class Cube {
         return true;
     }
 
-    private boolean cubeValidationHelper(boolean[] checks, boolean isCorner) {
+    // lets check all edges first and have them first in the array.
+    private boolean[] cubeValidationEdge(boolean[] checks, int one, int two) {
 
-        if (isCorner) {
-            // switch case for corners
-        } else {
-            // switch case for edges
-        }
+        return checks;
+    }
 
-        return true;
+    private boolean[] cubeValidationCorener(boolean[] checks, int one, int two, int three) {
+
+        return checks;
     }
 
     // public static void main(String args[]) {

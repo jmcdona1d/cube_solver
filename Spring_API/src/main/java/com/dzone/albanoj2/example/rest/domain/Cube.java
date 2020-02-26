@@ -207,77 +207,77 @@ public class Cube {
 
         switch (center) {
 
-        case 0:
-            int[] whiteSide1 = { 3, 0, 2, 0, 1, 0, 0 };
-            int[] whiteSide2 = { 4, 0, 2, 0, 1, 0, 0 };
-            int[] whiteSide3 = { 2, 0, 2, 0, 1, 0, 0 };
-            int[] whiteSide4 = { 1, 0, 2, 0, 1, 0, 0 };
-            side1 = whiteSide1;
-            side2 = whiteSide2;
-            side3 = whiteSide3;
-            side4 = whiteSide4;
-            sameSide = 5;
-            break;
+            case 0:
+                int[] whiteSide1 = { 3, 0, 2, 0, 1, 0, 0 };
+                int[] whiteSide2 = { 4, 0, 2, 0, 1, 0, 0 };
+                int[] whiteSide3 = { 2, 0, 2, 0, 1, 0, 0 };
+                int[] whiteSide4 = { 1, 0, 2, 0, 1, 0, 0 };
+                side1 = whiteSide1;
+                side2 = whiteSide2;
+                side3 = whiteSide3;
+                side4 = whiteSide4;
+                sameSide = 5;
+                break;
 
-        case 1:
-            int[] redSide1 = { 3, 2, 2, 1, 2, 0, 2 };
-            int[] redSide2 = { 0, 2, 0, 2, 1, 2, 2 };
-            int[] redSide3 = { 2, 0, 0, 1, 0, 2, 0 };
-            int[] redSide4 = { 5, 0, 2, 0, 1, 0, 0 };
-            side1 = redSide1;
-            side2 = redSide2;
-            side3 = redSide3;
-            side4 = redSide4;
-            sameSide = 4;
-            break;
+            case 1:
+                int[] redSide1 = { 3, 2, 2, 1, 2, 0, 2 };
+                int[] redSide2 = { 0, 2, 0, 2, 1, 2, 2 };
+                int[] redSide3 = { 2, 0, 0, 1, 0, 2, 0 };
+                int[] redSide4 = { 5, 0, 2, 0, 1, 0, 0 };
+                side1 = redSide1;
+                side2 = redSide2;
+                side3 = redSide3;
+                side4 = redSide4;
+                sameSide = 4;
+                break;
 
-        case 2:
-            int[] blueSide1 = { 0, 2, 2, 1, 2, 0, 2 };
-            int[] blueSide2 = { 4, 0, 0, 1, 0, 2, 0 };
-            int[] blueSide3 = { 5, 2, 2, 1, 2, 0, 2 };
-            int[] blueSide4 = { 1, 2, 2, 1, 2, 0, 2 };
-            side1 = blueSide1;
-            side2 = blueSide2;
-            side3 = blueSide3;
-            side4 = blueSide4;
-            sameSide = 3;
-            break;
+            case 2:
+                int[] blueSide1 = { 0, 2, 2, 1, 2, 0, 2 };
+                int[] blueSide2 = { 4, 0, 0, 1, 0, 2, 0 };
+                int[] blueSide3 = { 5, 2, 2, 1, 2, 0, 2 };
+                int[] blueSide4 = { 1, 2, 2, 1, 2, 0, 2 };
+                side1 = blueSide1;
+                side2 = blueSide2;
+                side3 = blueSide3;
+                side4 = blueSide4;
+                sameSide = 3;
+                break;
 
-        case 3:
-            int[] greenSide1 = { 5, 0, 0, 1, 0, 2, 0 };
-            int[] greenSide2 = { 4, 2, 2, 1, 2, 0, 2 };
-            int[] greenSide3 = { 0, 0, 0, 1, 0, 2, 0 };
-            int[] greenSide4 = { 1, 0, 0, 1, 0, 2, 0 };
-            side1 = greenSide1;
-            side2 = greenSide2;
-            side3 = greenSide3;
-            side4 = greenSide4;
-            sameSide = 2;
-            break;
+            case 3:
+                int[] greenSide1 = { 5, 0, 0, 1, 0, 2, 0 };
+                int[] greenSide2 = { 4, 2, 2, 1, 2, 0, 2 };
+                int[] greenSide3 = { 0, 0, 0, 1, 0, 2, 0 };
+                int[] greenSide4 = { 1, 0, 0, 1, 0, 2, 0 };
+                side1 = greenSide1;
+                side2 = greenSide2;
+                side3 = greenSide3;
+                side4 = greenSide4;
+                sameSide = 2;
+                break;
 
-        case 4:
-            int[] orangeSide1 = { 3, 0, 0, 1, 0, 2, 0 };
-            int[] orangeSide2 = { 5, 2, 0, 2, 1, 2, 2 };
-            int[] orangeSide3 = { 2, 2, 2, 1, 2, 0, 2 };
-            int[] orangeSide4 = { 0, 0, 2, 0, 1, 0, 0 };
-            side1 = orangeSide1;
-            side2 = orangeSide2;
-            side3 = orangeSide3;
-            side4 = orangeSide4;
-            sameSide = 1;
-            break;
+            case 4:
+                int[] orangeSide1 = { 3, 0, 0, 1, 0, 2, 0 };
+                int[] orangeSide2 = { 5, 2, 0, 2, 1, 2, 2 };
+                int[] orangeSide3 = { 2, 2, 2, 1, 2, 0, 2 };
+                int[] orangeSide4 = { 0, 0, 2, 0, 1, 0, 0 };
+                side1 = orangeSide1;
+                side2 = orangeSide2;
+                side3 = orangeSide3;
+                side4 = orangeSide4;
+                sameSide = 1;
+                break;
 
-        case 5:
-            int[] yellowSide1 = { 3, 2, 0, 2, 1, 2, 2 };
-            int[] yellowSide2 = { 1, 2, 0, 2, 1, 2, 2 };
-            int[] yellowSide3 = { 2, 2, 0, 2, 1, 2, 2 };
-            int[] yelloSide4 = { 4, 2, 0, 2, 1, 2, 2 };
-            side1 = yellowSide1;
-            side2 = yellowSide2;
-            side3 = yellowSide3;
-            side4 = yelloSide4;
-            sameSide = 0;
-            break;
+            case 5:
+                int[] yellowSide1 = { 3, 2, 0, 2, 1, 2, 2 };
+                int[] yellowSide2 = { 1, 2, 0, 2, 1, 2, 2 };
+                int[] yellowSide3 = { 2, 2, 0, 2, 1, 2, 2 };
+                int[] yelloSide4 = { 4, 2, 0, 2, 1, 2, 2 };
+                side1 = yellowSide1;
+                side2 = yellowSide2;
+                side3 = yellowSide3;
+                side4 = yelloSide4;
+                sameSide = 0;
+                break;
         }
 
         int centerFace[][] = sides.get(center);
@@ -467,27 +467,27 @@ public class Cube {
 
         switch (front[2][1]) {
 
-        case 1:
-            this.displayNet();
-            return true;
+            case 1:
+                this.displayNet();
+                return true;
 
-        case 2:
-            System.out.println("Aligning top:");
-            this.faceTurn(yellow, true);
-            return false;
+            case 2:
+                System.out.println("Aligning top:");
+                this.faceTurn(yellow, true);
+                return false;
 
-        case 3:
-            System.out.println("Aligning top:");
-            this.faceTurn(yellow, false);
-            return false;
+            case 3:
+                System.out.println("Aligning top:");
+                this.faceTurn(yellow, false);
+                return false;
 
-        case 4:
-            System.out.println("Aligning top:");
-            this.faceTurn(yellow, true, true);
-            return false;
+            case 4:
+                System.out.println("Aligning top:");
+                this.faceTurn(yellow, true, true);
+                return false;
 
-        default:
-            return false;
+            default:
+                return false;
         }
     }
 
@@ -585,43 +585,43 @@ public class Cube {
             System.out.println("Starting OLL first algorithm");
             switch (switchSelect1) {
 
-            case 1:
-                this.faceTurn(4); // line
-                this.faceTurn(2);
-                this.faceTurn(5);
-                this.faceTurn(2, false);
-                this.faceTurn(5, false);
-                this.faceTurn(4, false);
-                break;
+                case 1:
+                    this.faceTurn(4); // line
+                    this.faceTurn(2);
+                    this.faceTurn(5);
+                    this.faceTurn(2, false);
+                    this.faceTurn(5, false);
+                    this.faceTurn(4, false);
+                    break;
 
-            case 2:
-                this.faceTurn(4); // L
-                this.faceTurn(5);
-                this.faceTurn(2);
-                this.faceTurn(5, false);
-                this.faceTurn(2, false);
-                this.faceTurn(4, false);
-                break;
+                case 2:
+                    this.faceTurn(4); // L
+                    this.faceTurn(5);
+                    this.faceTurn(2);
+                    this.faceTurn(5, false);
+                    this.faceTurn(2, false);
+                    this.faceTurn(4, false);
+                    break;
 
-            case 3:
-                this.faceTurn(4); // 'dot' case does case 1 and then case 2 algorithims
-                this.faceTurn(2);
-                this.faceTurn(5);
-                this.faceTurn(2, false);
-                this.faceTurn(5, false);
-                this.faceTurn(4, false);
-                this.faceTurn(5, true, true);
+                case 3:
+                    this.faceTurn(4); // 'dot' case does case 1 and then case 2 algorithims
+                    this.faceTurn(2);
+                    this.faceTurn(5);
+                    this.faceTurn(2, false);
+                    this.faceTurn(5, false);
+                    this.faceTurn(4, false);
+                    this.faceTurn(5, true, true);
 
-                this.faceTurn(4);
-                this.faceTurn(5);
-                this.faceTurn(2);
-                this.faceTurn(5, false);
-                this.faceTurn(2, false);
-                this.faceTurn(4, false);
-                break;
+                    this.faceTurn(4);
+                    this.faceTurn(5);
+                    this.faceTurn(2);
+                    this.faceTurn(5, false);
+                    this.faceTurn(2, false);
+                    this.faceTurn(4, false);
+                    break;
 
-            case 4:
-                this.faceTurn(5);
+                case 4:
+                    this.faceTurn(5);
             }
             System.out.println(this.turnCount);
             return false;
@@ -634,98 +634,98 @@ public class Cube {
 
         switch (switchSelect2) {
 
-        case 0:
-            this.displayNet();
-            return true;
+            case 0:
+                this.displayNet();
+                return true;
 
-        case 1:
-            this.faceTurn(2, true, true); // (R2' D) (R' U2) (R D') (R' U2 R')
-            this.faceTurn(0);
-            this.faceTurn(2, false);
-            this.faceTurn(5, true, true);
-            this.faceTurn(2);
-            this.faceTurn(0, false);
-            this.faceTurn(2, false);
-            this.faceTurn(5, true, true);
-            this.faceTurn(2, false);
-            break;
+            case 1:
+                this.faceTurn(2, true, true); // (R2' D) (R' U2) (R D') (R' U2 R')
+                this.faceTurn(0);
+                this.faceTurn(2, false);
+                this.faceTurn(5, true, true);
+                this.faceTurn(2);
+                this.faceTurn(0, false);
+                this.faceTurn(2, false);
+                this.faceTurn(5, true, true);
+                this.faceTurn(2, false);
+                break;
 
-        case 2:
-            this.faceTurn(3); // L F R' F' L' F R F'
-            this.faceTurn(4);
-            this.faceTurn(2, false);
-            this.faceTurn(4, false);
-            this.faceTurn(3, false);
-            this.faceTurn(4);
-            this.faceTurn(2);
-            this.faceTurn(4, false);
-            break;
+            case 2:
+                this.faceTurn(3); // L F R' F' L' F R F'
+                this.faceTurn(4);
+                this.faceTurn(2, false);
+                this.faceTurn(4, false);
+                this.faceTurn(3, false);
+                this.faceTurn(4);
+                this.faceTurn(2);
+                this.faceTurn(4, false);
+                break;
 
-        case 3:
-            this.faceTurn(2); // R U2 R' U' (R U R' U') (R U R' U') R U' R'
-            this.faceTurn(5, true, true);
-            this.faceTurn(2, false);
-            this.faceTurn(5, false);
-            this.faceTurn(2);
-            this.faceTurn(5);
-            this.faceTurn(2, false);
-            this.faceTurn(5, false);
-            this.faceTurn(2);
-            this.faceTurn(5);
-            this.faceTurn(2, false);
-            this.faceTurn(5, false);
-            this.faceTurn(2);
-            this.faceTurn(5, false);
-            this.faceTurn(2, false);
-            break;
+            case 3:
+                this.faceTurn(2); // R U2 R' U' (R U R' U') (R U R' U') R U' R'
+                this.faceTurn(5, true, true);
+                this.faceTurn(2, false);
+                this.faceTurn(5, false);
+                this.faceTurn(2);
+                this.faceTurn(5);
+                this.faceTurn(2, false);
+                this.faceTurn(5, false);
+                this.faceTurn(2);
+                this.faceTurn(5);
+                this.faceTurn(2, false);
+                this.faceTurn(5, false);
+                this.faceTurn(2);
+                this.faceTurn(5, false);
+                this.faceTurn(2, false);
+                break;
 
-        case 4:
-            this.faceTurn(2); // sune
-            this.faceTurn(5);
-            this.faceTurn(2, false);
-            this.faceTurn(5);
-            this.faceTurn(2);
-            this.faceTurn(5, true, true);
-            this.faceTurn(2, false);
-            break;
+            case 4:
+                this.faceTurn(2); // sune
+                this.faceTurn(5);
+                this.faceTurn(2, false);
+                this.faceTurn(5);
+                this.faceTurn(2);
+                this.faceTurn(5, true, true);
+                this.faceTurn(2, false);
+                break;
 
-        case 5:
-            this.faceTurn(2, false); // anti-sune
-            this.faceTurn(5);
-            this.faceTurn(3);
-            this.faceTurn(5, false);
-            this.faceTurn(2);
-            this.faceTurn(5);
-            this.faceTurn(3, false);
-            break;
+            case 5:
+                this.faceTurn(2, false); // anti-sune
+                this.faceTurn(5);
+                this.faceTurn(3);
+                this.faceTurn(5, false);
+                this.faceTurn(2);
+                this.faceTurn(5);
+                this.faceTurn(3, false);
+                break;
 
-        case 6:
-            this.faceTurn(2); // R U2' [R2 U'] [R2 U'] R2 U2' R
-            this.faceTurn(5, true, true);
-            this.faceTurn(2, true, true);
-            this.faceTurn(5, false);
-            this.faceTurn(2, true, true);
-            this.faceTurn(5, false);
-            this.faceTurn(2, true, true);
-            this.faceTurn(5, true, true);
-            this.faceTurn(2);
-            break;
+            case 6:
+                this.faceTurn(2); // R U2' [R2 U'] [R2 U'] R2 U2' R
+                this.faceTurn(5, true, true);
+                this.faceTurn(2, true, true);
+                this.faceTurn(5, false);
+                this.faceTurn(2, true, true);
+                this.faceTurn(5, false);
+                this.faceTurn(2, true, true);
+                this.faceTurn(5, true, true);
+                this.faceTurn(2);
+                break;
 
-        case 7:
-            this.faceTurn(2); // (R U2') (R2' U') (R2 U') (R2' U2' R)
-            this.faceTurn(5, true, true);
-            this.faceTurn(2, true, true);
-            this.faceTurn(5, false);
-            this.faceTurn(2, true, true);
-            this.faceTurn(5, false);
-            this.faceTurn(2, true, true);
-            this.faceTurn(5, true, true);
-            this.faceTurn(2);
-            break;
+            case 7:
+                this.faceTurn(2); // (R U2') (R2' U') (R2 U') (R2' U2' R)
+                this.faceTurn(5, true, true);
+                this.faceTurn(2, true, true);
+                this.faceTurn(5, false);
+                this.faceTurn(2, true, true);
+                this.faceTurn(5, false);
+                this.faceTurn(2, true, true);
+                this.faceTurn(5, true, true);
+                this.faceTurn(2);
+                break;
 
-        case 8:
-            this.faceTurn(5);
-            break;
+            case 8:
+                this.faceTurn(5);
+                break;
         }
 
         return false;
@@ -1553,49 +1553,49 @@ public class Cube {
         int left, right, cornerX, cornerY, edgeX, edgeY;
 
         switch (status) {
-        case 0:
-            left = green;
-            right = orange;
-            cornerX = 2;
-            cornerY = 0;
-            edgeX = 0;
-            edgeY = 1;
-            break;
+            case 0:
+                left = green;
+                right = orange;
+                cornerX = 2;
+                cornerY = 0;
+                edgeX = 0;
+                edgeY = 1;
+                break;
 
-        case 1:
-            left = red;
-            right = green;
-            cornerX = 0;
-            cornerY = 0;
-            edgeX = 1;
-            edgeY = 2;
-            break;
+            case 1:
+                left = red;
+                right = green;
+                cornerX = 0;
+                cornerY = 0;
+                edgeX = 1;
+                edgeY = 2;
+                break;
 
-        case 2:
-            left = blue;
-            right = red;
-            cornerX = 0;
-            cornerY = 2;
-            edgeX = 2;
-            edgeY = 1;
-            break;
+            case 2:
+                left = blue;
+                right = red;
+                cornerX = 0;
+                cornerY = 2;
+                edgeX = 2;
+                edgeY = 1;
+                break;
 
-        case 3:
-            left = orange;
-            right = blue;
-            cornerX = 2;
-            cornerY = 2;
-            edgeX = 1;
-            edgeY = 0;
-            break;
+            case 3:
+                left = orange;
+                right = blue;
+                cornerX = 2;
+                cornerY = 2;
+                edgeX = 1;
+                edgeY = 0;
+                break;
 
-        default:
-            left = 0;
-            right = 0;
-            cornerX = 0;
-            cornerY = 0;
-            edgeX = 0;
-            edgeY = 0;
+            default:
+                left = 0;
+                right = 0;
+                cornerX = 0;
+                cornerY = 0;
+                edgeX = 0;
+                edgeY = 0;
         }
 
         int[][] Top = this.getSide(yellow);
@@ -1826,51 +1826,51 @@ public class Cube {
 
             switch (face) {
 
-            case 1:
-                return 2;
-            case 2:
-                return 4;
-            case 3:
-                return 1;
-            case 4:
-                return 3;
+                case 1:
+                    return 2;
+                case 2:
+                    return 4;
+                case 3:
+                    return 1;
+                case 4:
+                    return 3;
             }
         }
 
         switch (face) {
-        case 1:
-            return 3;
-        case 2:
-            return 1;
-        case 3:
-            return 4;
-        case 4:
-            return 2;
-        default:
-            return -1;
+            case 1:
+                return 3;
+            case 2:
+                return 1;
+            case 3:
+                return 4;
+            case 4:
+                return 2;
+            default:
+                return -1;
         }
     }
 
     private void addTurn(int center, boolean direction) {
 
         switch (center) {
-        case 0:
-            solveInstructions[this.state] += 'W';
-            break;
-        case 1:
-            solveInstructions[this.state] += 'R';
-            break;
-        case 2:
-            solveInstructions[this.state] += 'B';
-            break;
-        case 3:
-            solveInstructions[this.state] += 'G';
-            break;
-        case 4:
-            solveInstructions[this.state] += 'O';
-            break;
-        case 5:
-            solveInstructions[this.state] += 'Y';
+            case 0:
+                solveInstructions[this.state] += 'W';
+                break;
+            case 1:
+                solveInstructions[this.state] += 'R';
+                break;
+            case 2:
+                solveInstructions[this.state] += 'B';
+                break;
+            case 3:
+                solveInstructions[this.state] += 'G';
+                break;
+            case 4:
+                solveInstructions[this.state] += 'O';
+                break;
+            case 5:
+                solveInstructions[this.state] += 'Y';
         }
         solveInstructions[this.state] += direction ? "  " : "` ";
     }
@@ -1908,32 +1908,32 @@ public class Cube {
     private char[] convertToNumeric(char[] string) {
         for (int i = 0; i < string.length; i++) {
             switch (string[i]) {
-            case 'w':
-            case 'W':
-                string[i] = '0';
-                break;
-            case 'r':
-            case 'R':
-                string[i] = '1';
-                break;
-            case 'b':
-            case 'B':
-                string[i] = '2';
-                break;
-            case 'g':
-            case 'G':
-                string[i] = '3';
-                break;
-            case 'o':
-            case 'O':
-                string[i] = '4';
-                break;
-            case 'y':
-            case 'Y':
-                string[i] = '5';
-                break;
-            default:
-                break;
+                case 'w':
+                case 'W':
+                    string[i] = '0';
+                    break;
+                case 'r':
+                case 'R':
+                    string[i] = '1';
+                    break;
+                case 'b':
+                case 'B':
+                    string[i] = '2';
+                    break;
+                case 'g':
+                case 'G':
+                    string[i] = '3';
+                    break;
+                case 'o':
+                case 'O':
+                    string[i] = '4';
+                    break;
+                case 'y':
+                case 'Y':
+                    string[i] = '5';
+                    break;
+                default:
+                    break;
             }
 
         }
@@ -1956,7 +1956,21 @@ public class Cube {
         // since its impossible
 
         boolean[] checks = new boolean[21]; // array position 0 will be set to true if error is found
+        checks[0] = true;
 
+        // call edgevalidations on each edge
+
+        // call corner validations on each corner
+
+        for (int i = 0; i < 21; i++) {
+            if (!checks[i])
+                return false;
+        }
+
+        // instead of above - we can check the first index after each setting and return
+        // false if it is false
+        // if not it will continue and we can return true by default (since all indices
+        // will be true if after the last iteration 0 is true)
         return true;
     }
 
@@ -2002,7 +2016,39 @@ public class Cube {
         return checks;
     }
 
-    private boolean[] cubeValidationCorener(boolean[] checks, int one, int two, int three) {
+    private boolean[] cubeValidationCorner(boolean[] checks, int one, int two, int three) {
+
+        if (one == 4 && two == 3 && three == 0 || one == 0 && two == 4 && three == 3
+                || one == 3 && two == 0 && three == 4)// orange green white
+            setAndCheck(checks, 13);
+
+        if (one == 3 && two == 0 && three == 1 || one == 1 && two == 3 && three == 0
+                || one == 0 && two == 1 && three == 3)// green white red
+            setAndCheck(checks, 14);
+
+        if (one == 0 && two == 1 && three == 2 || one == 2 && two == 0 && three == 1
+                || one == 1 && two == 2 && three == 0)// white red blue
+            setAndCheck(checks, 15);
+
+        if (one == 2 && two == 0 && three == 4 || one == 4 && two == 2 && three == 0
+                || one == 0 && two == 4 && three == 2)// blue white orange
+            setAndCheck(checks, 16);
+
+        if (one == 4 && two == 3 && three == 5 || one == 5 && two == 4 && three == 3
+                || one == 3 && two == 5 && three == 4)// orange green yellow
+            setAndCheck(checks, 17);
+
+        if (one == 3 && two == 5 && three == 1 || one == 1 && two == 3 && three == 5
+                || one == 5 && two == 1 && three == 3)// green yellow red
+            setAndCheck(checks, 18);
+
+        if (one == 5 && two == 1 && three == 2 || one == 2 && two == 5 && three == 1
+                || one == 1 && two == 2 && three == 5)// yellow red blue
+            setAndCheck(checks, 19);
+
+        if (one == 2 && two == 5 && three == 4 || one == 4 && two == 2 && three == 5
+                || one == 5 && two == 4 && three == 2)// blue yellow orange
+            setAndCheck(checks, 20);
 
         return checks;
     }

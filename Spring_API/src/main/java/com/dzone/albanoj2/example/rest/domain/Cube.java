@@ -419,8 +419,8 @@ public class Cube {
 
     public int solveCube() {// reorder/rename solve method names as more are added
 
-        if (!this.validateCube())
-            return 501;// trigger react to show error message
+        // if (!this.validateCube())
+        //     return 501;// trigger react to show error message
 
         this.turnCount = 0;
 

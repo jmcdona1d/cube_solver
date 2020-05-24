@@ -11,6 +11,8 @@ While the main solving algorithm is still being debugged until it works >%95 of 
 
 This will create a cube that the program WILL be able to solve (it does not just statically return a result).
 
+The following [Spring Boot Application](https://github.com/albanoj2/order-rest-backend) was used as boilerplate for the server side of this project.
+
 ## Java Program
 
 Follow these steps to just run the program in *Java* by navigating to the directory `/Java`
